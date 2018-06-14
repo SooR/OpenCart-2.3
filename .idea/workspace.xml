@@ -4,7 +4,10 @@
     <bookmark url="file://$PROJECT_DIR$/catalog/language/ru-ru/common/city.php" line="2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53759913-13e3-4223-b6ed-afa8283ab541" name="Default" comment="" />
+    <list default="true" id="53759913-13e3-4223-b6ed-afa8283ab541" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/admin/model/common/city.php" afterPath="$PROJECT_DIR$/admin/model/common/city.php" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +17,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="city.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="city.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/language/ru-ru/localisation/city.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
@@ -37,24 +40,25 @@
       <file leaf-file-name="city_form.tpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/view/template/localisation/city_form.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="23" column="103" lean-forward="true" selection-start-line="23" selection-start-column="103" selection-end-line="23" selection-end-column="103" />
+            <state relative-caret-position="379">
+              <caret line="35" column="55" lean-forward="true" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="city.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="city.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/model/common/city.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="931">
-              <caret line="59" column="43" lean-forward="true" selection-start-line="59" selection-start-column="43" selection-end-line="59" selection-end-column="43" />
+            <state relative-caret-position="153">
+              <caret line="9" column="65" lean-forward="true" selection-start-line="9" selection-start-column="65" selection-end-line="9" selection-end-column="65" />
               <folding>
-                <marker date="1528958854827" expanded="true" signature="129:164" ph="SELECT * FRO... ${DB_PREFIX}" />
-                <marker date="1528958854827" expanded="true" signature="1046:1099" ph="SELECT * FRO... ${DB_PREFIX}" />
-                <marker date="1528958854827" expanded="true" signature="1484:1552" ph="DELETE FROM ${DB_PREFIX}city... " />
-                <marker date="1528958854827" expanded="true" signature="1667:1718" ph="SELECT COUNT... ${DB_PREFIX}" />
-                <marker date="1528958854827" expanded="true" signature="1833:1912" ph="SELECT DISTI... ${DB_PREFIX}" />
+                <marker date="1528963465529" expanded="true" signature="104:560" ph="INSERT INTO ${DB_PREFIX}city... " />
+                <marker date="1528963465529" expanded="true" signature="855:890" ph="SELECT * FRO... ${DB_PREFIX}" />
+                <marker date="1528963465529" expanded="true" signature="1772:1825" ph="SELECT * FRO... ${DB_PREFIX}" />
+                <marker date="1528963465529" expanded="true" signature="2210:2278" ph="DELETE FROM ${DB_PREFIX}city... " />
+                <marker date="1528963465529" expanded="true" signature="2393:2444" ph="SELECT COUNT... ${DB_PREFIX}" />
+                <marker date="1528963465529" expanded="true" signature="2559:2638" ph="SELECT DISTI... ${DB_PREFIX}" />
               </folding>
             </state>
           </provider>
@@ -63,8 +67,8 @@
       <file leaf-file-name="currency.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/model/localisation/currency.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="26" selection-end-column="5" />
+            <state relative-caret-position="238">
+              <caret line="14" column="10" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -73,14 +77,14 @@
       <file leaf-file-name="city.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/controller/localisation/city.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="368" column="51" lean-forward="false" selection-start-line="368" selection-start-column="47" selection-end-line="368" selection-end-column="51" />
+            <state relative-caret-position="236">
+              <caret line="22" column="55" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="55" />
               <folding>
                 <element signature="n#index#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-                <element signature="n#add#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
                 <element signature="n#edit#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
                 <element signature="n#delete#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
                 <element signature="n#getList#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+                <element signature="n#getForm#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
                 <element signature="n#validateDelete#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
               </folding>
             </state>
@@ -90,8 +94,8 @@
       <file leaf-file-name="currency.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/controller/localisation/currency.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2880">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="-10">
+              <caret line="406" column="125" lean-forward="true" selection-start-line="406" selection-start-column="125" selection-end-line="406" selection-end-column="125" />
               <folding />
             </state>
           </provider>
@@ -136,6 +140,9 @@
       <replace>$city</replace>
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -172,10 +179,10 @@
         <option value="$PROJECT_DIR$/admin/view/template/localisation/city_list.tpl" />
         <option value="$PROJECT_DIR$/admin/controller/common/column_left.php" />
         <option value="$PROJECT_DIR$/admin/language/ru-ru/common/column_left.php" />
-        <option value="$PROJECT_DIR$/admin/model/common/city.php" />
         <option value="$PROJECT_DIR$/admin/controller/localisation/city.php" />
         <option value="$PROJECT_DIR$/admin/view/template/localisation/city_form.tpl" />
         <option value="$PROJECT_DIR$/admin/language/ru-ru/localisation/city.php" />
+        <option value="$PROJECT_DIR$/admin/model/common/city.php" />
       </list>
     </option>
   </component>
@@ -189,12 +196,13 @@
     <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -307,15 +315,15 @@
       <workItem from="1528700420011" duration="8956000" />
       <workItem from="1528782886217" duration="2515000" />
       <workItem from="1528887286942" duration="8374000" />
-      <workItem from="1528956226482" duration="4122000" />
+      <workItem from="1528956226482" duration="5285000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31330000" />
+    <option name="totallyTimeSpent" value="32493000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -324,7 +332,7 @@
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -654,59 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/controller/localisation/currency.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2880">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/controller/localisation/city.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="368" column="51" lean-forward="false" selection-start-line="368" selection-start-column="47" selection-end-line="368" selection-end-column="51" />
-          <folding>
-            <element signature="n#index#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-            <element signature="n#add#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-            <element signature="n#edit#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-            <element signature="n#delete#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-            <element signature="n#getList#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-            <element signature="n#validateDelete#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/view/template/localisation/city_form.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="23" column="103" lean-forward="true" selection-start-line="23" selection-start-column="103" selection-end-line="23" selection-end-column="103" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/model/common/city.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="931">
-          <caret line="59" column="43" lean-forward="true" selection-start-line="59" selection-start-column="43" selection-end-line="59" selection-end-column="43" />
-          <folding>
-            <marker date="1528958854827" expanded="true" signature="129:164" ph="SELECT * FRO... ${DB_PREFIX}" />
-            <marker date="1528958854827" expanded="true" signature="1046:1099" ph="SELECT * FRO... ${DB_PREFIX}" />
-            <marker date="1528958854827" expanded="true" signature="1484:1552" ph="DELETE FROM ${DB_PREFIX}city... " />
-            <marker date="1528958854827" expanded="true" signature="1667:1718" ph="SELECT COUNT... ${DB_PREFIX}" />
-            <marker date="1528958854827" expanded="true" signature="1833:1912" ph="SELECT DISTI... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/model/localisation/currency.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="26" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/language/ru-ru/localisation/currency.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -720,6 +675,60 @@
         <state relative-caret-position="408">
           <caret line="25" column="59" lean-forward="true" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/view/template/localisation/city_form.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="35" column="55" lean-forward="true" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/controller/localisation/currency.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10">
+          <caret line="406" column="125" lean-forward="true" selection-start-line="406" selection-start-column="125" selection-end-line="406" selection-end-column="125" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/controller/localisation/city.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="22" column="55" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="55" />
+          <folding>
+            <element signature="n#index#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+            <element signature="n#edit#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+            <element signature="n#delete#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+            <element signature="n#getList#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+            <element signature="n#getForm#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+            <element signature="n#validateDelete#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/model/localisation/currency.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="10" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/model/common/city.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="65" lean-forward="true" selection-start-line="9" selection-start-column="65" selection-end-line="9" selection-end-column="65" />
+          <folding>
+            <marker date="1528963465529" expanded="true" signature="104:560" ph="INSERT INTO ${DB_PREFIX}city... " />
+            <marker date="1528963465529" expanded="true" signature="855:890" ph="SELECT * FRO... ${DB_PREFIX}" />
+            <marker date="1528963465529" expanded="true" signature="1772:1825" ph="SELECT * FRO... ${DB_PREFIX}" />
+            <marker date="1528963465529" expanded="true" signature="2210:2278" ph="DELETE FROM ${DB_PREFIX}city... " />
+            <marker date="1528963465529" expanded="true" signature="2393:2444" ph="SELECT COUNT... ${DB_PREFIX}" />
+            <marker date="1528963465529" expanded="true" signature="2559:2638" ph="SELECT DISTI... ${DB_PREFIX}" />
+          </folding>
         </state>
       </provider>
     </entry>
