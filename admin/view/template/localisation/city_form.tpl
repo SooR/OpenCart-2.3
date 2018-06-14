@@ -57,9 +57,56 @@
               </select>
             </div>
           </div>
+            <div class="tab-pane">
+                <ul class="nav nav-tabs" id="language">
+			        <?php foreach ($languages as $language) { ?>
+                        <li><a href="#language<?php echo $language['language_id']; ?>" data-toggle="tab"><img src="language/<?php echo $language['code']; ?>/<?php echo $language['code']; ?>.png" title="<?php echo $language['name']; ?>" /> <?php echo $language['name']; ?></a></li>
+			        <?php } ?>
+                </ul>
+                <div class="tab-content">
+			        <?php foreach ($languages as $language) { ?>
+                        <div class="tab-pane" id="language<?php echo $language['language_id']; ?>">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="input-title<?php echo $language['language_id']; ?>"><?php echo $entry_title; ?></label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="city_description[<?php echo $language['language_id']; ?>][title]" placeholder="<?php echo $entry_title; ?>" id="input-heading<?php echo $language['language_id']; ?>" value="<?php echo isset($city_description[$language['language_id']]['title']) ? $city_description[$language['language_id']]['title'] : ''; ?>" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="input-meta_description<?php echo $language['language_id']; ?>"><?php echo $entry_meta_description; ?></label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="city_description[<?php echo $language['language_id']; ?>][meta_description]" placeholder="<?php echo $entry_meta_description; ?>" id="input-meta_description<?php echo $language['language_id']; ?>"  value="<?php echo isset($city_description[$language['language_id']]['meta_description']) ? $city_description[$language['language_id']]['meta_description'] : ''; ?>" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="input-meta_h1<?php echo $language['language_id']; ?>"><?php echo $entry_meta_h1; ?></label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="city_description[<?php echo $language['language_id']; ?>][meta_h1]" placeholder="<?php echo $entry_meta_h1; ?>" id="input-meta_h1<?php echo $language['language_id']; ?>"  value="<?php echo isset($city_description[$language['language_id']]['meta_h1']) ? $city_description[$language['language_id']]['meta_h1'] : ''; ?>" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="input-description<?php echo $language['language_id']; ?>"><?php echo $entry_description; ?></label>
+                                <div class="col-sm-10">
+                                    <textarea name="city_description[<?php echo $language['language_id']; ?>][description]" placeholder="<?php echo $entry_description; ?>" id="input-description<?php echo $language['language_id']; ?>" data-lang="<?php echo $lang; ?>" class="form-control summernote"><?php echo isset($city_description[$language['language_id']]['description']) ? $city_description[$language['language_id']]['description'] : ''; ?></textarea>
+                                </div>
+                            </div>
+                        </div>
+			        <?php } ?>
+                </div>
+            </div>
         </form>
       </div>
     </div>
   </div>
+    <script type="text/javascript">
+		<?php foreach ($languages as $language) { ?>
+		<?php if ($ckeditor) { ?>
+        ckeditorInit('input-description<?php echo $language['language_id']; ?>', getURLVar('token'));
+		<?php } ?>
+		<?php } ?>
+    </script>
+    <script type="text/javascript">
+        $('#language a:first').tab('show');
+    </script>
 </div>
 <?php echo $footer; ?>

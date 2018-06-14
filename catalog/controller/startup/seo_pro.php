@@ -48,14 +48,18 @@ class ControllerStartupSeoPro extends Controller {
             $lang = array();
             
             foreach($languages as $language){
-                $lang[] = $language['code'];
+	            $a = explode('-', $language['code']);
+                $lang[] = $a[0];
             }
+	
+	        $b = explode('-', $urllanguage[0]);
             
-            if(isset($urllanguage[0]) && in_array($urllanguage[0], $lang)){
+            
+            if(isset($b[0]) && in_array($b[0], $lang)){
                 if(count($urllanguage) > 1){
-                    $replace_lang = $urllanguage[0] . "/";
+                    $replace_lang = $b[0] . "/";
                 }else{
-                    $replace_lang = $urllanguage[0];
+                    $replace_lang = $b[0];
                 }
                 
                 $this->request->get['_route_'] = str_replace($replace_lang, '', $this->request->get['_route_']);
@@ -309,7 +313,10 @@ class ControllerStartupSeoPro extends Controller {
 		$config_lang = trim($this->config->get('config_language'));
 		
         if(isset($this->session->data['language']) && $this->session->data['language'] != $config_lang){
-            $seo_url = $this->session->data['language'] . "/" . $seo_url;
+	        $a = explode("-", $this->session->data['language']);
+	        $a = $a[0];
+	        
+            $seo_url = $a . "/" . $seo_url;
         }
         // End Language Mod
 		

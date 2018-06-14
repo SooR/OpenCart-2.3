@@ -6,7 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="53759913-13e3-4223-b6ed-afa8283ab541" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/admin/controller/localisation/city.php" afterPath="$PROJECT_DIR$/admin/controller/localisation/city.php" />
+      <change beforePath="$PROJECT_DIR$/admin/controller/localisation/currency.php" afterPath="$PROJECT_DIR$/admin/controller/localisation/currency.php" />
       <change beforePath="$PROJECT_DIR$/admin/model/common/city.php" afterPath="$PROJECT_DIR$/admin/model/common/city.php" />
+      <change beforePath="$PROJECT_DIR$/admin/view/template/localisation/city_form.tpl" afterPath="$PROJECT_DIR$/admin/view/template/localisation/city_form.tpl" />
+      <change beforePath="$PROJECT_DIR$/catalog/controller/common/city.php" afterPath="$PROJECT_DIR$/catalog/controller/common/city.php" />
+      <change beforePath="$PROJECT_DIR$/catalog/controller/startup/seo_pro.php" afterPath="$PROJECT_DIR$/catalog/controller/startup/seo_pro.php" />
+      <change beforePath="$PROJECT_DIR$/catalog/model/common/city.php" afterPath="$PROJECT_DIR$/catalog/model/common/city.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,22 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="city.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/language/ru-ru/localisation/city.php">
+      <file leaf-file-name="city.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/controller/localisation/city.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="25" column="59" lean-forward="true" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="currency.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/language/ru-ru/localisation/currency.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="71" lean-forward="false" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="71" />
-              <folding />
+            <state relative-caret-position="306">
+              <caret line="265" column="69" lean-forward="false" selection-start-line="265" selection-start-column="69" selection-end-line="265" selection-end-column="69" />
+              <folding>
+                <element signature="n#index#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+                <element signature="n#add#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+                <element signature="n#edit#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+                <element signature="n#delete#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+                <element signature="n#getList#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+                <element signature="n#validateDelete#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -40,62 +43,28 @@
       <file leaf-file-name="city_form.tpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/view/template/localisation/city_form.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="35" column="55" lean-forward="true" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
+            <state relative-caret-position="623">
+              <caret line="98" column="46" lean-forward="true" selection-start-line="98" selection-start-column="46" selection-end-line="98" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="city.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/model/common/city.php">
+      <file leaf-file-name="html.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/controller/extension/module/html.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="65" lean-forward="true" selection-start-line="9" selection-start-column="65" selection-end-line="9" selection-end-column="65" />
-              <folding>
-                <marker date="1528963465529" expanded="true" signature="104:560" ph="INSERT INTO ${DB_PREFIX}city... " />
-                <marker date="1528963465529" expanded="true" signature="855:890" ph="SELECT * FRO... ${DB_PREFIX}" />
-                <marker date="1528963465529" expanded="true" signature="1772:1825" ph="SELECT * FRO... ${DB_PREFIX}" />
-                <marker date="1528963465529" expanded="true" signature="2210:2278" ph="DELETE FROM ${DB_PREFIX}city... " />
-                <marker date="1528963465529" expanded="true" signature="2393:2444" ph="SELECT COUNT... ${DB_PREFIX}" />
-                <marker date="1528963465529" expanded="true" signature="2559:2638" ph="SELECT DISTI... ${DB_PREFIX}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="currency.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/model/localisation/currency.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="10" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="5" />
+            <state relative-caret-position="617">
+              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="51" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="city.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/controller/localisation/city.php">
+      <file leaf-file-name="html.tpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/view/template/extension/module/html.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="22" column="55" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="55" />
-              <folding>
-                <element signature="n#index#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-                <element signature="n#edit#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-                <element signature="n#delete#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-                <element signature="n#getList#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-                <element signature="n#getForm#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-                <element signature="n#validateDelete#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="currency.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/controller/localisation/currency.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10">
-              <caret line="406" column="125" lean-forward="true" selection-start-line="406" selection-start-column="125" selection-end-line="406" selection-end-column="125" />
+            <state relative-caret-position="551">
+              <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="85" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -105,11 +74,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$entry_city</find>
-      <find>cit</find>
-      <find>con</find>
-      <find>currency</find>
-      <find>cu</find>
       <find>c</find>
       <find>Currency</find>
       <find>$this-&gt;language-&gt;get('tab_general');</find>
@@ -134,10 +98,16 @@
       <find>column_title</find>
       <find>$currency</find>
       <find>getCities</find>
+      <find>addCity</find>
       <find>getCity</find>
+      <find>$city_id</find>
+      <find>sta</find>
+      <find>lang</find>
+      <find>module_description</find>
     </findStrings>
     <replaceStrings>
       <replace>$city</replace>
+      <replace>city_description</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -148,7 +118,6 @@
       <list>
         <option value="$PROJECT_DIR$/catalog/model/catalog/city.php" />
         <option value="$PROJECT_DIR$/catalog/model/localisation/currency.php" />
-        <option value="$PROJECT_DIR$/catalog/model/common/city.php" />
         <option value="$PROJECT_DIR$/admin/language/en-gb/setting/setting.php" />
         <option value="$PROJECT_DIR$/admin/language/ru-ru/setting/setting.php" />
         <option value="$PROJECT_DIR$/admin/controller/setting/setting.php" />
@@ -158,7 +127,6 @@
         <option value="$PROJECT_DIR$/catalog/controller/startup/startup.php" />
         <option value="$PROJECT_DIR$/catalog/view/theme/default/template/common/city.tpl" />
         <option value="$PROJECT_DIR$/catalog/view/javascript/common.js" />
-        <option value="$PROJECT_DIR$/catalog/controller/common/city.php" />
         <option value="$PROJECT_DIR$/admin/controller/catalog/product.php" />
         <option value="$PROJECT_DIR$/admin/language/en-gb/catalog/product.php" />
         <option value="$PROJECT_DIR$/admin/language/ru-ru/catalog/product.php" />
@@ -166,7 +134,6 @@
         <option value="$PROJECT_DIR$/admin/model/catalog/product.php" />
         <option value="$PROJECT_DIR$/admin/view/template/catalog/product_form.tpl" />
         <option value="$PROJECT_DIR$/catalog/controller/startup/maintenance.php" />
-        <option value="$PROJECT_DIR$/catalog/controller/startup/seo_pro.php" />
         <option value="$PROJECT_DIR$/catalog/model/catalog/product.php" />
         <option value="$PROJECT_DIR$/system/library/document.php" />
         <option value="$PROJECT_DIR$/catalog/controller/common/header.php" />
@@ -179,10 +146,14 @@
         <option value="$PROJECT_DIR$/admin/view/template/localisation/city_list.tpl" />
         <option value="$PROJECT_DIR$/admin/controller/common/column_left.php" />
         <option value="$PROJECT_DIR$/admin/language/ru-ru/common/column_left.php" />
-        <option value="$PROJECT_DIR$/admin/controller/localisation/city.php" />
-        <option value="$PROJECT_DIR$/admin/view/template/localisation/city_form.tpl" />
         <option value="$PROJECT_DIR$/admin/language/ru-ru/localisation/city.php" />
+        <option value="$PROJECT_DIR$/admin/controller/localisation/currency.php" />
         <option value="$PROJECT_DIR$/admin/model/common/city.php" />
+        <option value="$PROJECT_DIR$/catalog/controller/common/city.php" />
+        <option value="$PROJECT_DIR$/catalog/model/common/city.php" />
+        <option value="$PROJECT_DIR$/catalog/controller/startup/seo_pro.php" />
+        <option value="$PROJECT_DIR$/admin/view/template/localisation/city_form.tpl" />
+        <option value="$PROJECT_DIR$/admin/controller/localisation/city.php" />
       </list>
     </option>
   </component>
@@ -196,7 +167,7 @@
     <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -218,6 +189,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -234,29 +207,74 @@
               <item name="blog" type="b2602c69:ProjectViewProjectNode" />
               <item name="blog" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="language" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="controller" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="blog" type="b2602c69:ProjectViewProjectNode" />
               <item name="blog" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="language" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ru-ru" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="extension" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="blog" type="b2602c69:ProjectViewProjectNode" />
               <item name="blog" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="language" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ru-ru" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="localisation" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="extension" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="module" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="template" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="template" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="extension" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="template" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="extension" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="module" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="catalog" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="catalog" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="catalog" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -315,29 +333,30 @@
       <workItem from="1528700420011" duration="8956000" />
       <workItem from="1528782886217" duration="2515000" />
       <workItem from="1528887286942" duration="8374000" />
-      <workItem from="1528956226482" duration="5285000" />
+      <workItem from="1528956226482" duration="7745000" />
+      <workItem from="1528976638686" duration="3192000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32493000" />
+    <option name="totallyTimeSpent" value="38145000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26812366" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26865673" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -351,37 +370,49 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/admin/model/localisation/currency.php</url>
+          <line>16</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Roaming/Skype/My Skype Received Files/check.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/account/download.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/controller/tool/upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="689">
-          <caret line="71" column="26" lean-forward="false" selection-start-line="71" selection-start-column="19" selection-end-line="71" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/language/ru-ru/setting/setting.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -425,13 +456,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/model/common/city.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="18" column="43" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/common/currency.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -454,13 +478,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/controller/common/currency.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="46" lean-forward="true" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/catalog/view/javascript/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
@@ -475,24 +492,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/controller/startup/startup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2890">
-          <caret line="170" column="8" lean-forward="false" selection-start-line="170" selection-start-column="8" selection-end-line="170" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/catalog/view/theme/default/template/common/city.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="94" lean-forward="false" selection-start-line="2" selection-start-column="94" selection-end-line="2" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/controller/common/city.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" column="73" lean-forward="false" selection-start-line="54" selection-start-column="73" selection-end-line="54" selection-end-column="73" />
         </state>
       </provider>
     </entry>
@@ -588,13 +591,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/controller/startup/seo_pro.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/catalog/view/javascript/bal_language.js" />
     <entry file="file://$PROJECT_DIR$/catalog/controller/product/category.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -642,7 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="557">
           <caret line="109" column="57" lean-forward="true" selection-start-line="109" selection-start-column="57" selection-end-line="109" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -650,7 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="653">
           <caret line="159" column="65" lean-forward="false" selection-start-line="159" selection-start-column="56" selection-end-line="159" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -658,15 +652,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="526">
           <caret line="50" column="59" lean-forward="false" selection-start-line="50" selection-start-column="59" selection-end-line="50" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/language/ru-ru/localisation/currency.php">
+    <entry file="file://$PROJECT_DIR$/admin/controller/localisation/currency.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="71" lean-forward="false" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="71" />
-          <folding />
+        <state relative-caret-position="285">
+          <caret line="453" column="55" lean-forward="false" selection-start-line="453" selection-start-column="55" selection-end-line="453" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -674,60 +666,121 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="25" column="59" lean-forward="true" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/view/template/localisation/city_form.tpl">
+    <entry file="file://$PROJECT_DIR$/admin/language/ru-ru/localisation/currency.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="35" column="55" lean-forward="true" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
-          <folding />
+        <state relative-caret-position="578">
+          <caret line="34" column="71" lean-forward="false" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/controller/localisation/currency.php">
+    <entry file="file://$PROJECT_DIR$/catalog/model/localisation/currency.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="406" column="125" lean-forward="true" selection-start-line="406" selection-start-column="125" selection-end-line="406" selection-end-column="125" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/controller/localisation/city.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="22" column="55" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="55" />
-          <folding>
-            <element signature="n#index#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-            <element signature="n#edit#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-            <element signature="n#delete#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-            <element signature="n#getList#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-            <element signature="n#getForm#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-            <element signature="n#validateDelete#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="425">
+          <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/model/localisation/currency.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="10" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="5" />
+        <state relative-caret-position="287">
+          <caret line="17" column="2" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="19" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/model/common/city.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="65" lean-forward="true" selection-start-line="9" selection-start-column="65" selection-end-line="9" selection-end-column="65" />
+        <state relative-caret-position="238">
+          <caret line="14" column="240" lean-forward="false" selection-start-line="14" selection-start-column="240" selection-end-line="14" selection-end-column="240" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/controller/common/city.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="19" column="35" lean-forward="false" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/controller/common/currency.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/controller/startup/seo_pro.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="61" column="61" lean-forward="true" selection-start-line="61" selection-start-column="61" selection-end-line="61" selection-end-column="61" />
           <folding>
-            <marker date="1528963465529" expanded="true" signature="104:560" ph="INSERT INTO ${DB_PREFIX}city... " />
-            <marker date="1528963465529" expanded="true" signature="855:890" ph="SELECT * FRO... ${DB_PREFIX}" />
-            <marker date="1528963465529" expanded="true" signature="1772:1825" ph="SELECT * FRO... ${DB_PREFIX}" />
-            <marker date="1528963465529" expanded="true" signature="2210:2278" ph="DELETE FROM ${DB_PREFIX}city... " />
-            <marker date="1528963465529" expanded="true" signature="2393:2444" ph="SELECT COUNT... ${DB_PREFIX}" />
-            <marker date="1528963465529" expanded="true" signature="2559:2638" ph="SELECT DISTI... ${DB_PREFIX}" />
+            <marker date="1528981671377" expanded="true" signature="273:372" ph="SELECT LOWER... ${DB_PREFIX}" />
+            <marker date="1528981671377" expanded="true" signature="10013:10150" ph="SELECT categ... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/controller/startup/startup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2338">
+          <caret line="170" column="8" lean-forward="false" selection-start-line="170" selection-start-column="8" selection-end-line="170" selection-end-column="8" />
+          <folding>
+            <marker date="1528814544186" expanded="true" signature="265:478" ph="SELECT * FRO... ${DB_PREFIX}" />
+            <marker date="1528814544186" expanded="true" signature="523:735" ph="SELECT * FRO... ${DB_PREFIX}" />
+            <marker date="1528814544186" expanded="true" signature="1215:1365" ph="SELECT * FRO... ${DB_PREFIX}setting" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/model/common/city.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="48" lean-forward="false" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+          <folding>
+            <marker date="1528965744284" expanded="true" signature="117:195" ph="SELECT DISTI... ${DB_PREFIX}" />
+            <marker date="1528965744284" expanded="true" signature="400:453" ph="SELECT * FRO... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/view/template/extension/module/html.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="85" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/controller/extension/module/html.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="51" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/view/template/localisation/city_form.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="623">
+          <caret line="98" column="46" lean-forward="true" selection-start-line="98" selection-start-column="46" selection-end-line="98" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/controller/localisation/city.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="265" column="69" lean-forward="false" selection-start-line="265" selection-start-column="69" selection-end-line="265" selection-end-column="69" />
+          <folding>
+            <element signature="n#index#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+            <element signature="n#add#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+            <element signature="n#edit#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+            <element signature="n#delete#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+            <element signature="n#getList#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
+            <element signature="n#validateDelete#0;n#ControllerLocalisationCity#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>

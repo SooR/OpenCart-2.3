@@ -17,11 +17,13 @@
 			$results = $this->model_common_city->getCities();
 			
 			foreach ($results as $result) {
-				$data['cities'][] = array(
-					'id'        => $result['id'],
-					'code'      => $result['code'],
-					'name'      => $result['name'],
-				);
+				if ($result['status']) {
+					$data['cities'][] = array(
+						'id' => $result['id'],
+						'code' => $result['code'],
+						'name' => $result['name'],
+					);
+				}
 			}
 			
 			

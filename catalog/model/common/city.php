@@ -20,6 +20,7 @@
 						'id'        => $result['id'],
 						'name'      => $result['name'],
 						'code'      => $result['code'],
+						'status'    => $result['status']
 					);
 				}
 				

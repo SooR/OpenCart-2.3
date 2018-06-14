@@ -20,7 +20,7 @@ class ControllerLocalisationCity extends Controller {
 		$this->load->model('common/city');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_localisation_currency->addCity($this->request->post);
+			$this->model_common_city->addCity($this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -45,14 +45,14 @@ class ControllerLocalisationCity extends Controller {
 	}
 
 	public function edit() {
-		$this->load->language('localisation/currency');
+		$this->load->language('localisation/city');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('localisation/currency');
+		$this->load->model('common/city');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_localisation_currency->editCurrency($this->request->get['currency_id'], $this->request->post);
+			$this->model_common_city->editCity($this->request->get['city_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -70,7 +70,7 @@ class ControllerLocalisationCity extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('localisation/currency', 'token=' . $this->session->data['token'] . $url, true));
+			$this->response->redirect($this->url->link('localisation/city', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getForm();
@@ -260,6 +260,22 @@ class ControllerLocalisationCity extends Controller {
 	}
 
 	protected function getForm() {
+		
+		//CKEditor
+		if ($this->config->get('config_editor_default')) {
+			$this->document->addScript('view/javascript/ckeditor/ckeditor.js');
+			$this->document->addScript('view/javascript/ckeditor/ckeditor_init.js');
+		} else {
+			$this->document->addScript('view/javascript/summernote/summernote.js');
+			$this->document->addScript('view/javascript/summernote/lang/summernote-' . $this->language->get('lang') . '.js');
+			$this->document->addScript('view/javascript/summernote/opencart.js');
+			$this->document->addStyle('view/javascript/summernote/summernote.css');
+		}
+		
+		$data['ckeditor'] = $this->config->get('config_editor_default');
+		
+		$data['lang'] = $this->language->get('lang');
+		
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_form'] = !isset($this->request->get['city_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
@@ -351,8 +367,12 @@ class ControllerLocalisationCity extends Controller {
 		} elseif (!empty($city_info)) {
 			$data['status'] = $city_info['status'];
 		} else {
-			$data['status'] = '';
+			$data['status'] = '1';
 		}
+		
+		$this->load->model('localisation/language');
+		
+		$data['languages'] = $this->model_localisation_language->getLanguages();
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
@@ -370,7 +390,7 @@ class ControllerLocalisationCity extends Controller {
 			$this->error['name'] = $this->language->get('error_name');
 		}
 
-		if (utf8_strlen($this->request->post['code']) != 3) {
+		if (utf8_strlen($this->request->post['code']) <= 3 || (utf8_strlen($this->request->post['code']) > 80)){
 			$this->error['code'] = $this->language->get('error_code');
 		}
 

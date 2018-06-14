@@ -2,17 +2,19 @@
 	class ModelCommonCity extends Model {
 		
 		public function addCity($data) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "city SET name = '" . $this->db->escape($data['name']) . "', code = '" . $this->db->escape($data['code']) . "', symbol_left = '" . $this->db->escape($data['symbol_left']) . "', symbol_right = '" . $this->db->escape($data['symbol_right']) . "', decimal_place = '" . $this->db->escape($data['decimal_place']) . "', value = '" . $this->db->escape($data['value']) . "', status = '" . (int)$data['status'] . "', date_modified = NOW()");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "city SET name = '" . $this->db->escape($data['name']) . "', code = '" . $this->db->escape($data['code']) . "', status = '" . (int)$data['status'] . "'");
 			
-			$currency_id = $this->db->getLastId();
+			$city_id = $this->db->getLastId();
 			
-			if ($this->config->get('config_currency_auto')) {
-				$this->refresh(true);
-			}
+			$this->cache->delete('city');
 			
-			$this->cache->delete('currency');
+			return $city_id;
+		}
+		
+		public function editCity($city_id, $data) {
+			$this->db->query("UPDATE " . DB_PREFIX . "city SET name = '" . $this->db->escape($data['name']) . "', code = '" . $this->db->escape($data['code']) . "', status = '" . (int)$data['status'] . "' WHERE id = '" . (int)$city_id . "'");
 			
-			return $currency_id;
+			$this->cache->delete('city');
 		}
 		
 		public function getCities($data = array()) {
