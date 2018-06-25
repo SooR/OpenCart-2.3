@@ -7,13 +7,12 @@
 		}
 		
 		public function getCities() {
-			
-			$city_data = $this->cache->get('city');
-			
-			if (!$city_data) {
+				
 				$city_data = array();
 				
-				$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "city ORDER BY name ASC");
+				$sql = "SELECT * FROM " . DB_PREFIX . "city c LEFT JOIN " . DB_PREFIX . "city_description cd ON (c.id = cd.city_id) WHERE cd.language_id = '" . (int)$this->config->get('config_language_id') . "'";
+				
+				$query = $this->db->query($sql);
 				
 				foreach ($query->rows as $result) {
 					$city_data[$result['code']] = array(
@@ -24,11 +23,16 @@
 					);
 				}
 				
-				$this->cache->set('city', $city_data);
-			}
-			
 			return $city_data;
 
+		}
+		
+		public function getCityDescription($code){
+			
+			$query = $this->db->query("SELECT DISTINCT * FROM " . DB_PREFIX . "city c LEFT JOIN " . DB_PREFIX . "city_description cd  ON (c.id = cd.city_id) WHERE code = '" . $code . "' AND cd.language_id = '" . (int)$this->config->get('config_language_id') . "'");
+			
+			return $query->row;
+			
 		}
 		
 	}

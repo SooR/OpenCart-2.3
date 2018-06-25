@@ -163,6 +163,12 @@ class ModelCatalogProduct extends Model {
 
 			$sql .= ")";
 		}
+		
+		// OCFilter start
+		if (!empty($ocfilter_product_sql) && $ocfilter_product_sql->where) {
+			$sql .= $ocfilter_product_sql->where;
+		}
+		// OCFilter end
 
 		if (!empty($data['filter_manufacturer_id'])) {
 			$sql .= " AND p.manufacturer_id = '" . (int)$data['filter_manufacturer_id'] . "'";

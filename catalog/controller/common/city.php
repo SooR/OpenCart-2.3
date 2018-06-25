@@ -8,7 +8,7 @@
 			
 			$data['action'] = $this->url->link('common/city/city', '', isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1')));
 			
-			$data['city'] = $this->session->data['city'];
+			$data['code'] = $this->session->data['city'];
 			
 			$this->load->model('common/city');
 			
@@ -36,13 +36,11 @@
 				
 				$route = $url_data['route'];
 				
-				unset($url_data['route']);
-				
-				$url = '';
-				
 				if ($url_data) {
 					$url = '&' . urldecode(http_build_query($url_data, '', '&'));
-				}
+				}	unset($url_data['route']);
+				
+				$url = '';
 				
 				$data['redirect'] = $this->url->link($route, $url, isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1')));
 			}
@@ -62,5 +60,6 @@
 			} else {
 				$this->response->redirect($this->url->link('common/home'));
 			}
+			
 		}
 	}

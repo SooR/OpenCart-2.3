@@ -282,24 +282,39 @@ class ControllerLocalisationCity extends Controller {
 		$data['text_enabled'] = $this->language->get('text_enabled');
 		$data['text_disabled'] = $this->language->get('text_disabled');
 		
+		$data['text_yes'] = $this->language->get('text_yes');
+		$data['text_no'] = $this->language->get('text_no');
+		
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_code'] = $this->language->get('entry_code');
 		$data['help_code'] = $this->language->get('help_code');
+		$data['help_canonical'] = $this->language->get('help_canonical');
+		
 		$data['entry_status'] = $this->language->get('entry_status');
+		
+		$data['entry_description'] = $this->language->get('entry_description');
+		$data['entry_title'] = $this->language->get('entry_title');
+		$data['entry_meta_h1'] = $this->language->get('entry_meta_h1');
+		$data['entry_meta_description'] = $this->language->get('entry_meta_description');
+		
+		$data['entry_index'] = $this->language->get('entry_index');
+		$data['entry_canonical'] = $this->language->get('entry_canonical');
 		
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
+		
+		if (isset($this->request->post['city_description'])) {
+			$data['city_description'] = $this->request->post['city_description'];
+		} elseif (isset($this->request->get['city_id'])) {
+			$data['city_description'] = $this->model_common_city->getCityDescriptions($this->request->get['city_id']);
+		} else {
+			$data['city_description'] = array();
+		}
 		
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
 		} else {
 			$data['error_warning'] = '';
-		}
-
-		if (isset($this->error['name'])) {
-			$data['error_name'] = $this->error['name'];
-		} else {
-			$data['error_name'] = '';
 		}
 
 		if (isset($this->error['code'])) {
@@ -345,21 +360,21 @@ class ControllerLocalisationCity extends Controller {
 		if (isset($this->request->get['city_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$city_info = $this->model_common_city->getCity($this->request->get['city_id']);
 		}
-
-		if (isset($this->request->post['name'])) {
-			$data['name'] = $this->request->post['name'];
-		} elseif (!empty($city_info)) {
-			$data['name'] = $city_info['name'];
-		} else {
-			$data['name'] = '';
-		}
-
+		
 		if (isset($this->request->post['code'])) {
 			$data['code'] = $this->request->post['code'];
 		} elseif (!empty($city_info)) {
 			$data['code'] = $city_info['code'];
 		} else {
 			$data['code'] = '';
+		}
+		
+		if (isset($this->request->post['robots'])) {
+			$data['robots'] = $this->request->post['robots'];
+		} elseif (!empty($city_info)) {
+			$data['robots'] = $city_info['robots'];
+		} else {
+			$data['robots'] = '1';
 		}
 
 		if (isset($this->request->post['status'])) {
@@ -385,13 +400,28 @@ class ControllerLocalisationCity extends Controller {
 		if (!$this->user->hasPermission('modify', 'localisation/city')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
-
-		if ((utf8_strlen($this->request->post['name']) < 3) || (utf8_strlen($this->request->post['name']) > 32)) {
-			$this->error['name'] = $this->language->get('error_name');
+		
+		foreach ($this->request->post['city_description'] as $language_id => $value) {
+			if ((utf8_strlen($value['name']) < 3) || (utf8_strlen($value['name']) > 255)) {
+				$this->error['name'][$language_id] = $this->language->get('error_name');
+			}
 		}
 
 		if (utf8_strlen($this->request->post['code']) <= 3 || (utf8_strlen($this->request->post['code']) > 80)){
 			$this->error['code'] = $this->language->get('error_code');
+		}
+		
+		if (utf8_strlen($this->request->post['code']) > 0) {
+			
+			$this->load->model('catalog/url_alias');
+			$this->load->model('common/city');
+			
+			$url_alias_product = $this->model_catalog_url_alias->getUrlAlias($this->request->post['code']);
+			$url_alias_city = $this->model_common_city->getUrlAlias($this->request->post['code']);
+			
+			if ($url_alias_product || $url_alias_city && $url_alias_city['id'] != $this->request->get['city_id']) {
+				$this->error['code'] = sprintf($this->language->get('error_keyword'));
+			}
 		}
 
 		return !$this->error;

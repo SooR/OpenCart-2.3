@@ -23,7 +23,7 @@ class ControllerCommonLanguage extends Controller {
 				);
 			}
 		}
-
+		
 		if (!isset($this->request->get['route'])) {
 			$data['redirect'] = $this->url->link('common/home');
 		} else {
@@ -40,7 +40,8 @@ class ControllerCommonLanguage extends Controller {
 			}
 
 			$data['redirect'] = $this->url->link($route, $url, isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1')));
-		}
+	
+			}
 
 		return $this->load->view('common/language', $data);
 	}

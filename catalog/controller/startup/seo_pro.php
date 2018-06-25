@@ -48,18 +48,14 @@ class ControllerStartupSeoPro extends Controller {
             $lang = array();
             
             foreach($languages as $language){
-	            $a = explode('-', $language['code']);
-                $lang[] = $a[0];
+                $lang[] = $language['code'];
             }
-	
-	        $b = explode('-', $urllanguage[0]);
             
-            
-            if(isset($b[0]) && in_array($b[0], $lang)){
+            if(isset($urllanguage[0]) && in_array($urllanguage[0], $lang)){
                 if(count($urllanguage) > 1){
-                    $replace_lang = $b[0] . "/";
+                    $replace_lang = $urllanguage[0] . "/";
                 }else{
-                    $replace_lang = $b[0];
+                    $replace_lang = $urllanguage[0];
                 }
                 
                 $this->request->get['_route_'] = str_replace($replace_lang, '', $this->request->get['_route_']);
@@ -306,6 +302,7 @@ class ControllerStartupSeoPro extends Controller {
 			if (isset($this->session->data['city']) && $this->session->data['city'] != $config_city) {
 				$seo_url = $this->session->data['city'] . "/" . $seo_url;
 			}
+			
 		}
 		// End City Mod
 		
@@ -313,10 +310,7 @@ class ControllerStartupSeoPro extends Controller {
 		$config_lang = trim($this->config->get('config_language'));
 		
         if(isset($this->session->data['language']) && $this->session->data['language'] != $config_lang){
-	        $a = explode("-", $this->session->data['language']);
-	        $a = $a[0];
-	        
-            $seo_url = $a . "/" . $seo_url;
+            $seo_url = $this->session->data['language'] . "/" . $seo_url;
         }
         // End Language Mod
 		
@@ -375,7 +369,7 @@ class ControllerStartupSeoPro extends Controller {
 		}
 
 		if (!isset($path[$category_id])) {
-			$max_level = 10;
+			$max_level = 1;
 
 			$sql = "SELECT CONCAT_WS('_'";
 			for ($i = $max_level-1; $i >= 0; --$i) {

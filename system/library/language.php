@@ -1,6 +1,6 @@
 <?php
 class Language {
-	private $default = 'en-gb';
+	private $default = 'en';
 	private $directory;
 	private $data = array();
 
@@ -25,7 +25,7 @@ class Language {
 	public function merge(&$data) {
 		array_merge($this->data, $data);
 	}
-			
+	
 	public function load($filename, &$data = array()) {
 		$_ = array();
 

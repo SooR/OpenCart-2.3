@@ -14,10 +14,7 @@ class ControllerSettingSetting extends Controller {
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
       $language_info = $this->model_localisation_language->getLanguageByCode($this->request->post['config_language']);
       $front_language_id = $language_info['language_id'];
-
-      $this->request->post['config_meta_title'] = $this->request->post['config_langdata'][$front_language_id]['meta_title'];
-      $this->request->post['config_meta_description'] = $this->request->post['config_langdata'][$front_language_id]['meta_description'];
-      $this->request->post['config_meta_keyword'] = $this->request->post['config_langdata'][$front_language_id]['meta_keyword'];
+      
       $this->request->post['config_name'] = $this->request->post['config_langdata'][$front_language_id]['name'];
       $this->request->post['config_owner'] = $this->request->post['config_langdata'][$front_language_id]['owner'];
       $this->request->post['config_address'] = $this->request->post['config_langdata'][$front_language_id]['address'];
@@ -85,9 +82,6 @@ class ControllerSettingSetting extends Controller {
 		$data['entry_open'] = $this->language->get('entry_open');
 		$data['entry_comment'] = $this->language->get('entry_comment');
 		$data['entry_location'] = $this->language->get('entry_location');
-		$data['entry_meta_title'] = $this->language->get('entry_meta_title');
-		$data['entry_meta_description'] = $this->language->get('entry_meta_description');
-		$data['entry_meta_keyword'] = $this->language->get('entry_meta_keyword');
 		$data['entry_theme'] = $this->language->get('entry_theme');
 		$data['entry_layout'] = $this->language->get('entry_layout');
 		$data['entry_country'] = $this->language->get('entry_country');
@@ -329,13 +323,7 @@ class ControllerSettingSetting extends Controller {
 		} else {
 			$data['error_telephone'] = '';
 		}
-
-		if (isset($this->error['meta_title'])) {
-			$data['error_meta_title'] = $this->error['meta_title'];
-		} else {
-			$data['error_meta_title'] = '';
-		}
-
+		
 		if (isset($this->error['country'])) {
 			$data['error_country'] = $this->error['country'];
 		} else {
@@ -467,25 +455,6 @@ class ControllerSettingSetting extends Controller {
 			$data['config_langdata'] = $this->request->post['config_langdata'];
 		} else {
 			$data['config_langdata'] = $this->config->get('config_langdata');
-		}
-
-
-		if (isset($this->request->post['config_meta_title'])) {
-			$data['config_meta_title'] = $this->request->post['config_meta_title'];
-		} else {
-			$data['config_meta_title'] = $this->config->get('config_meta_title');
-		}
-
-		if (isset($this->request->post['config_meta_description'])) {
-			$data['config_meta_description'] = $this->request->post['config_meta_description'];
-		} else {
-			$data['config_meta_description'] = $this->config->get('config_meta_description');
-		}
-
-		if (isset($this->request->post['config_meta_keyword'])) {
-			$data['config_meta_keyword'] = $this->request->post['config_meta_keyword'];
-		} else {
-			$data['config_meta_keyword'] = $this->config->get('config_meta_keyword');
 		}
 
 		if (isset($this->request->post['config_theme'])) {
@@ -666,7 +635,15 @@ class ControllerSettingSetting extends Controller {
 		
 		$this->load->model('common/city');
 		
-		$data['cities'] = $this->model_common_city->getCities();
+		$cities = $this->model_common_city->getCities();
+		
+		$data['cities'] = array();
+		
+		foreach ($cities as $key => $sity){
+			if($sity['status'] == 1){
+				$data['cities'][] = $cities[$key];
+			}
+		}
 
 		if (isset($this->request->post['config_length_class_id'])) {
 			$data['config_length_class_id'] = $this->request->post['config_length_class_id'];

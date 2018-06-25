@@ -10,8 +10,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title><?php echo $title;  ?></title>
-<?php if ($noindex) { ?>
-<meta name="robots" content="noindex,nofollow" />
+<?php if ($robots) { ?>
+    <meta name="robots" content= "<?php echo $robots; ?>" />
+<?php } ?>
+<?php if ($canonical) { ?>
+    <link rel="canonical" href="<?php echo $canonical; ?>"/>
 <?php } ?>
 <base href="<?php echo $base; ?>" />
 <?php if ($description) { ?>

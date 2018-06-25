@@ -36,11 +36,19 @@ class ControllerStartupStartup extends Controller {
 		$this->registry->set('url', new Url($this->config->get('config_url'), $this->config->get('config_secure') ? $this->config->get('config_ssl') : $this->config->get('config_url')));
 		
 		// Language
-		$code = '';
+		$code = "";
 		
 		$this->load->model('localisation/language');
 		
 		$languages = $this->model_localisation_language->getLanguages();
+		
+		if (isset($this->request->get['_route_'])) {
+			$urllanguage = explode('/', trim(utf8_strtolower($this->request->get['_route_']), '/'));
+			
+			if (isset($urllanguage[0]) && array_key_exists($urllanguage[0], $languages)) {
+				$code = $urllanguage[0];
+			}
+		}
 		
 		if (isset($this->session->data['language'])) {
 			$code = $this->session->data['language'];
@@ -144,7 +152,27 @@ class ControllerStartupStartup extends Controller {
 		
 		$this->load->model('common/city');
 		
-		$cities = $this->model_common_city->getCities();
+		$cities_data = $this->model_common_city->getCities();
+		
+		$cities = array();
+		
+		foreach ($cities_data as $key => $value) {
+			if ($value['status']) {
+				$cities[$key][] = $value;
+			}
+		}
+		
+		if (isset($this->request->get['_route_'])) {
+			$urlcity = explode('/', trim(utf8_strtolower($this->request->get['_route_']), '/'));
+			
+			if($urlcity) {
+				if (isset($urlcity[0]) && array_key_exists($urlcity[0], $cities)) {
+					$city = $urlcity[0];
+				} else if (isset($urlcity[1]) && array_key_exists($urlcity[1], $cities)) {
+					$city = $urlcity[1];
+				}
+			}
+		}
 		
 		if (isset($this->session->data['city'])) {
 			$city = $this->session->data['city'];

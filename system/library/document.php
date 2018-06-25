@@ -7,20 +7,29 @@ class Document {
 	private $styles = array();
 	private $scripts = array();
 	private $og_image;
-	// OCFilter start
-	private $noindex = false;
-	// OCFilter end
+	private $robots;
+	private $canonical;
 	
-	// OCFilter start
-	public function setNoindex($state = false) {
-		$this->noindex = $state;
+	/* META ROBOTS */
+	public function setRobots($robots) {
+		$this->robots = $robots;
 	}
 	
-	public function isNoindex() {
-		return $this->noindex;
+	public function getRobots() {
+		return $this->robots;
 	}
-	// OCFilter end
-
+	/* META ROBOTS  */
+	
+	/* META CANNONICAL */
+	public function setCanonical($canonical) {
+		$this->canonical = $canonical;
+	}
+	
+	public function getCanonical() {
+		return $this->canonical;
+	}
+	/* META CANNONICAL */
+	
 	public function setTitle($title) {
 		$this->title = $title;
 	}

@@ -25,38 +25,12 @@
       </div>
       <div class="panel-body">
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-city" class="form-horizontal">
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-name"><?php echo $entry_name; ?></label>
-            <div class="col-sm-10">
-              <input type="text" name="name" value="<?php echo $name; ?>" placeholder="<?php echo $entry_name; ?>" id="input-name" class="form-control" />
-              <?php if ($error_name) { ?>
-              <div class="text-danger"><?php echo $error_name; ?></div>
-              <?php } ?>
-            </div>
-          </div>
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-code"><span data-toggle="tooltip" title="<?php echo $help_code; ?>"><?php echo $entry_code; ?></span></label>
-            <div class="col-sm-10">
-              <input type="text" name="code" value="<?php echo $code; ?>" placeholder="<?php echo $entry_code; ?>" id="input-code" class="form-control" />
-              <?php if ($error_code) { ?>
-              <div class="text-danger"><?php echo $error_code; ?></div>
-              <?php } ?>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
-            <div class="col-sm-10">
-              <select name="status" id="input-status" class="form-control">
-                <?php if ($status) { ?>
-                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
-                <option value="0"><?php echo $text_disabled; ?></option>
-                <?php } else { ?>
-                <option value="1"><?php echo $text_enabled; ?></option>
-                <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
-                <?php } ?>
-              </select>
-            </div>
-          </div>
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab-general" data-toggle="tab"><?php echo $tab_general; ?></a></li>
+                <li><a href="#tab-data" data-toggle="tab"><?php echo $tab_data; ?></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab-general">
             <div class="tab-pane">
                 <ul class="nav nav-tabs" id="language">
 			        <?php foreach ($languages as $language) { ?>
@@ -66,6 +40,15 @@
                 <div class="tab-content">
 			        <?php foreach ($languages as $language) { ?>
                         <div class="tab-pane" id="language<?php echo $language['language_id']; ?>">
+                            <div class="form-group required">
+                                <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_name; ?></label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="city_description[<?php echo $language['language_id']; ?>][name]" value="<?php echo isset($city_description[$language['language_id']]['name']) ? $city_description[$language['language_id']]['name'] : ''; ?>" placeholder="<?php echo $entry_name; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
+	                                <?php if (isset($error_name[$language['language_id']])) { ?>
+                                        <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
+	                                <?php } ?>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="input-title<?php echo $language['language_id']; ?>"><?php echo $entry_title; ?></label>
                                 <div class="col-sm-10">
@@ -92,6 +75,57 @@
                             </div>
                         </div>
 			        <?php } ?>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label class="col-sm-2 control-label" for="input-code"><span data-toggle="tooltip" title="<?php echo $help_code; ?>"><?php echo $entry_code; ?></span></label>
+                <div class="col-sm-10">
+                    <input type="text" name="code" value="<?php echo $code; ?>" placeholder="<?php echo $entry_code; ?>" id="input-code" class="form-control" />
+			        <?php if ($error_code) { ?>
+                        <div class="text-danger"><?php echo $error_code; ?></div>
+			        <?php } ?>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><?php echo $entry_index; ?></label>
+                <div class="col-sm-10">
+                    <label class="radio-inline">
+				        <?php if ($robots) { ?>
+                            <input type="radio" name="robots" value="1" checked="checked" />
+					        <?php echo $text_yes; ?>
+				        <?php } else { ?>
+                            <input type="radio" name="robots" value="1" />
+					        <?php echo $text_yes; ?>
+				        <?php } ?>
+                    </label>
+                    <label class="radio-inline">
+				        <?php if (!$robots) { ?>
+                            <input type="radio" name="robots" value="0" checked="checked" />
+					        <?php echo $text_no; ?>
+				        <?php } else { ?>
+                            <input type="radio" name="robots" value="0" />
+					        <?php echo $text_no; ?>
+				        <?php } ?>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
+                <div class="col-sm-10">
+                    <select name="status" id="input-status" class="form-control">
+				        <?php if ($status) { ?>
+                            <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                            <option value="0"><?php echo $text_disabled; ?></option>
+				        <?php } else { ?>
+                            <option value="1"><?php echo $text_enabled; ?></option>
+                            <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+				        <?php } ?>
+                    </select>
+                </div>
+            </div>
+                </div>
+                <div class="tab-pane" id="tab-data">
+                    1
                 </div>
             </div>
         </form>

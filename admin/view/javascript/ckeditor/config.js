@@ -14,34 +14,33 @@ CKEDITOR.editorConfig = function( config )
 	config.filebrowserFlashBrowseUrl = 'index.php?route=common/filemanager';
 	config.filebrowserUploadUrl = 'index.php?route=common/filemanager';
 	config.filebrowserImageUploadUrl = 'index.php?route=common/filemanager';
-	config.filebrowserFlashUploadUrl = 'index.php?route=common/filemanager';		
+	config.filebrowserFlashUploadUrl = 'index.php?route=common/filemanager';
 	*/
-	
+
 	config.filebrowserWindowWidth = '800';
 	config.filebrowserWindowHeight = '500';
 
 	config.resize_enabled = false;
-	
+
 	config.htmlEncodeOutput = false;
 	config.entities = false;
-	
+
 	config.toolbar = 'Custom';
 
+    config.skin = 'moono-lisa';
+
+    config.extraPlugins = 'youtube';
+
 	config.toolbar_Custom = [
-		['Source'],
-		['Maximize'],
-		['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
-		['NumberedList','BulletedList','-','Outdent','Indent'],
-		['JustifyLeft','JustifyCenter','JustifyRight','JustifyFull'],
-		['SpecialChar'],
-		'/',
-		['Undo','Redo'],
-		['Font','FontSize'],
+        ['Undo','Redo'],
+		['Bold','Italic','Underline','Strike'],
+		['NumberedList','BulletedList'],
+		['FontSize'],
 		['TextColor','BGColor'],
-		['Link','Unlink','Anchor'],
-		['Image','Table','HorizontalRule']
+		['Link','Unlink'],
+		['Image','Table','Youtube'],['Source']
 	];
-	
+
 	config.toolbar_Full = [
 		['Source','-','Save','NewPage','Preview','-','Templates'],
 		['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print', 'SpellChecker', 'Scayt'],
