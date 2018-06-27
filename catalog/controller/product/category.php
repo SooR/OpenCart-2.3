@@ -276,6 +276,43 @@ class ControllerProductCategory extends Controller {
 				} else {
 					$rating = false;
 				}
+				
+					$product_stickers = array();
+				
+					$this->load->model('design/stikers');
+					
+					if (isset($result['product_stickers']) && $result['product_stickers']) {
+						$stickers = unserialize($result['product_stickers']);
+					} else {
+						$stickers = array();
+					}
+					
+					if ($stickers) {
+						foreach ($stickers as $product_sticker_id) {
+							$sticker_info = $this->model_design_stikers->getProductSticker($product_sticker_id);
+							
+							if ($sticker_info) {
+								$product_stickers[] = array(
+									'text' => $sticker_info['text'],
+									'color' => $sticker_info['color'],
+									'background' => $sticker_info['background']
+								);
+							}
+						}
+						
+						$sticker_sort_order = array();
+						
+						foreach ($stickers as $key => $product_sticker_id) {
+							$sticker_info = $this->model_design_stikers->getProductSticker($product_sticker_id);
+							
+							if ($sticker_info) {
+								$sticker_sort_order[$key] = $sticker_info['sort_order'];
+							}
+						}
+						
+						array_multisort($sticker_sort_order, SORT_ASC, $product_stickers);
+					}
+					
 
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
@@ -287,7 +324,8 @@ class ControllerProductCategory extends Controller {
 					'tax'         => $tax,
 					'minimum'     => ($result['minimum'] > 0) ? $result['minimum'] : 1,
 					'rating'      => $rating,
-					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
+					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url),
+					'product_stickers' => $product_stickers,
 				);
 			}
 

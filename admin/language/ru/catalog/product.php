@@ -29,6 +29,8 @@ $_['entry_values']              = 'Добавьте значения для эт
 $_['tab_ocfilter']              = 'Опции фильтра';
 $_['ocfilter_select_category']  = 'Для начала, выберите категории для этого товара.';
 
+$_['enter_product_stickers']  = 'Стикер';
+
 // Entry
 $_['entry_main_category']       = 'Главная категория:';
 $_['entry_name']          		= 'Наименование:';

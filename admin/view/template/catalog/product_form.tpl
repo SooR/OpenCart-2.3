@@ -102,6 +102,21 @@
               </div>
             </div>
             <div class="tab-pane" id="tab-data">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><?php echo $enter_product_stickers; ?></label>
+                    <div class="col-sm-10">
+                        <div class="well well-sm" style="height: 150px; overflow: auto;">
+				            <?php foreach ($product_stickers as $product_sticker) { ?>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="product_stickers[<?php echo $product_sticker['product_sticker_id']; ?>]" value="<?php echo $product_sticker['product_sticker_id']; ?>" <?php echo (isset($product_sticker_id[$product_sticker['product_sticker_id']]) && !empty($product_sticker_id[$product_sticker['product_sticker_id']])) ? 'checked' : ''; ?>
+                                        /> <?php echo $product_sticker['title']; ?>
+                                    </label>
+                                </div>
+				            <?php } ?>
+                        </div>
+                    </div>
+                </div>
               <div class="form-group required">
                 <label class="col-sm-2 control-label" for="input-model"><?php echo $entry_model; ?></label>
                 <div class="col-sm-10">

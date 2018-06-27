@@ -107,4 +107,4 @@ $_['text_ocfilter_option']                  = 'Фильтры';
 $_['text_ocfilter_page']                    = 'Страницы';
 $_['text_ocfilter_setting']                 = 'Настройки';
 $_['text_city']                             = 'Список городов';
-$_['text_custommenu']                       = 'Конструктор Меню';
+$_['text_stikers']                          = 'Стикеры товаров';

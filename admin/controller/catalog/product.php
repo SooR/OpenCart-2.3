@@ -1424,6 +1424,20 @@ class ControllerCatalogProduct extends Controller {
 		} else {
 			$data['product_layout'] = array();
 		}
+		
+		$this->load->model('design/stikers');
+		
+		$data['product_stickers'] = $this->model_design_stikers->getProductStickers();
+		
+		if (isset($this->request->post['product_stickers'])) {
+			$data['product_sticker_id'] = $this->request->post['product_stickers'];
+		} elseif (!empty($product_info)) {
+			$data['product_sticker_id'] = unserialize($product_info['product_stickers']);
+		} else {
+			$data['product_sticker_id'] = array();
+		}
+		
+		$data['enter_product_stickers'] = $this->language->get('enter_product_stickers');
 
 		$this->load->model('design/layout');
 

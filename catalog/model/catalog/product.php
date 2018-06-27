@@ -50,7 +50,8 @@ class ModelCatalogProduct extends Model {
 				'status'           => $query->row['status'],
 				'date_added'       => $query->row['date_added'],
 				'date_modified'    => $query->row['date_modified'],
-				'viewed'           => $query->row['viewed']
+				'viewed'           => $query->row['viewed'],
+				'product_stickers'     => (isset($query->row['product_stickers'])) ? $query->row['product_stickers'] : array(),
 			);
 		} else {
 			return false;

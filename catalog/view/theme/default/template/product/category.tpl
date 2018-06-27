@@ -99,6 +99,15 @@
         <data data-bal="bal-elemen"></data>
         <div class="product-layout product-list col-xs-12">
           <div class="product-thumb">
+	          <?php if ($product['product_stickers']) { ?>
+                  <div class="sticker-box-cat">
+			          <?php foreach ($product['product_stickers'] as $product_sticker) { ?>
+                          <span class="stickers-cat" style="color: <?php echo $product_sticker['color']; ?>; background: <?php echo $product_sticker['background']; ?>;">
+                            <?php echo $product_sticker['text']; ?>
+                          </span>
+			          <?php } ?>
+                  </div>
+	          <?php } ?>
             <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
             <div>
               <div class="caption">

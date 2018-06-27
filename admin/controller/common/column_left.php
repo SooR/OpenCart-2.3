@@ -254,10 +254,10 @@ class ControllerCommonColumnLeft extends Controller {
 				);
 			}
 			
-			if ($this->user->hasPermission('access', 'design/custommenu')) {
+			if ($this->user->hasPermission('access', 'design/stikers')) {
 				$design[] = array(
-					'name'	   => $this->language->get('text_custommenu'),
-					'href'     => $this->url->link('design/custommenu', 'token=' . $this->session->data['token'], true),
+					'name'	   => $this->language->get('text_stikers'),
+					'href'     => $this->url->link('design/stikers', 'token=' . $this->session->data['token'], true),
 					'children' => array()
 				);
 			}
