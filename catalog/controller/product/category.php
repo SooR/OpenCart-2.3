@@ -102,18 +102,45 @@ class ControllerProductCategory extends Controller {
 		$category_info = $this->model_catalog_category->getCategory($category_id);
 
 		if ($category_info) {
-
-			if ($category_info['meta_title']) {
-				$this->document->setTitle($category_info['meta_title']);
+			
+			// Cities
+			$city_code = $this->session->data['city'];
+			
+			$city_id = $this->model_common_city->getCityByCode($city_code);
+			
+			if($city_id) {
+				$city_description = $this->model_common_city->getCityCategory($city_id['id'], $category_id);
+			}
+			
+			// Cities
+			
+			if (isset($city_description['title'])) {
+				$this->document->setTitle($city_description['title']);
 			} else {
 				$this->document->setTitle($category_info['name']);
 			}
+			
+			if (isset($city_description['description']) && isset($city_description['robots'])) {
+				if (!$city_description['description'] || !$city_description['robots']) {
+					$this->document->setRobots('noindex, nofollow');
+				}
+			}
+			
+			if (isset($city_description['canonical'])) {
+				if ($city_description['canonical']) {
+					$this->document->setCanonical($city_description['canonical']);
+				}
+			}
+			if (isset($city_description['meta_description'])) {
+				$this->document->setDescription($city_description['meta_description']);
+			}
+			
+			if (isset($city_description['meta_keyword'])) {
+				$this->document->setKeywords($city_description['meta_keyword']);
+			}
 
-			$this->document->setDescription($category_info['meta_description']);
-			$this->document->setKeywords($category_info['meta_keyword']);
-
-			if ($category_info['meta_h1']) {
-				$data['heading_title'] = $category_info['meta_h1'];
+			if (isset($city_description['meta_h1'])) {
+				$data['heading_title'] = $city_description['meta_h1'];
 			} else {
 				$data['heading_title'] = $category_info['name'];
 			}
@@ -158,8 +185,12 @@ class ControllerProductCategory extends Controller {
 			} else {
 				$data['thumb'] = '';
 			}
-
-			$data['description'] = html_entity_decode($category_info['description'], ENT_QUOTES, 'UTF-8');
+			if (isset($city_description['description'])) {
+				$data['description'] = html_entity_decode($city_description['description'], ENT_QUOTES, 'UTF-8');
+			}else{
+				$data['description'] = "";
+			}
+			
 			$data['compare'] = $this->url->link('product/compare');
 
 			$url = '';

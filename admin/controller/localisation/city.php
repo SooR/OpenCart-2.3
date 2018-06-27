@@ -288,7 +288,6 @@ class ControllerLocalisationCity extends Controller {
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_code'] = $this->language->get('entry_code');
 		$data['help_code'] = $this->language->get('help_code');
-		$data['help_canonical'] = $this->language->get('help_canonical');
 		
 		$data['entry_status'] = $this->language->get('entry_status');
 		
@@ -298,7 +297,6 @@ class ControllerLocalisationCity extends Controller {
 		$data['entry_meta_description'] = $this->language->get('entry_meta_description');
 		
 		$data['entry_index'] = $this->language->get('entry_index');
-		$data['entry_canonical'] = $this->language->get('entry_canonical');
 		
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
@@ -445,6 +443,43 @@ class ControllerLocalisationCity extends Controller {
 		}
 
 		return !$this->error;
+	}
+	
+	public function autocomplete() {
+		$json = array();
+		
+		if (isset($this->request->get['filter_name'])) {
+			
+			$this->load->model('common/city');
+			
+			$filter_data = array(
+				'filter_name' => $this->request->get['filter_name'],
+				'sort'        => 'name',
+				'order'       => 'ASC',
+				'start'       => 0,
+				'limit'       => 5
+			);
+			
+			$results = $this->model_common_city->getCities($filter_data);
+			
+			foreach ($results as $result) {
+				$json[] = array(
+					'city_id' => $result['id'],
+					'name'        => strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8'))
+				);
+			}
+		}
+		
+		$sort_order = array();
+		
+		foreach ($json as $key => $value) {
+			$sort_order[$key] = $value['name'];
+		}
+		
+		array_multisort($sort_order, SORT_ASC, $json);
+		
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
 	}
 	
 }

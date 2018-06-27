@@ -315,7 +315,11 @@ class ControllerCatalogCategory extends Controller {
 		$data['text_default'] = $this->language->get('text_default');
 		$data['text_enabled'] = $this->language->get('text_enabled');
 		$data['text_disabled'] = $this->language->get('text_disabled');
-
+		
+		$data['text_yes'] = $this->language->get('text_yes');
+		$data['text_no'] = $this->language->get('text_no');
+		$data['entry_index'] = $this->language->get('entry_index');
+		
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_description'] = $this->language->get('entry_description');
 		$data['entry_meta_title'] = $this->language->get('entry_meta_title');
@@ -332,6 +336,9 @@ class ControllerCatalogCategory extends Controller {
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
 		$data['entry_status'] = $this->language->get('entry_status');
 		$data['entry_layout'] = $this->language->get('entry_layout');
+		$data['entry_city'] = $this->language->get('entry_city');
+		
+		$data['text_city'] = $this->language->get('text_city');
 
 		$data['help_filter'] = $this->language->get('help_filter');
 		$data['help_keyword'] = $this->language->get('help_keyword');
@@ -340,10 +347,15 @@ class ControllerCatalogCategory extends Controller {
 
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
-
+		
+		$data['entry_canonical'] = $this->language->get('entry_canonical');
+		
 		$data['tab_general'] = $this->language->get('tab_general');
 		$data['tab_data'] = $this->language->get('tab_data');
 		$data['tab_design'] = $this->language->get('tab_design');
+		$data['tab_city'] = $this->language->get('tab_city');
+		
+		$data['error_city'] = $this->language->get('error_city');
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
@@ -382,6 +394,14 @@ class ControllerCatalogCategory extends Controller {
 		if (isset($this->request->get['page'])) {
 			$url .= '&page=' . $this->request->get['page'];
 		}
+		
+		if (isset($this->request->post['robots'])) {
+			$data['robots'] = $this->request->post['robots'];
+		} elseif (!empty($city_info)) {
+			$data['robots'] = $city_info['robots'];
+		} else {
+			$data['robots'] = '1';
+		}
 
 		$data['breadcrumbs'] = array();
 
@@ -415,6 +435,10 @@ class ControllerCatalogCategory extends Controller {
 		$data['languages'] = $this->model_localisation_language->getLanguages();
 
 		$data['lang'] = $this->language->get('lang');
+		
+		$current_lang = $this->model_localisation_language->getLanguageByCode($this->config->get('config_admin_language'));
+		
+		$data['current_lang'] = $current_lang['language_id'];
 
 		if (isset($this->request->post['category_description'])) {
 			$data['category_description'] = $this->request->post['category_description'];
@@ -423,7 +447,16 @@ class ControllerCatalogCategory extends Controller {
 		} else {
 			$data['category_description'] = array();
 		}
-
+		
+		
+		if (isset($this->request->post['city_descriptions'])) {
+			$data['city_descriptions'] = $this->request->post['city_descriptions'];
+		} elseif (isset($this->request->get['category_id'])) {
+			$data['city_descriptions'] = $this->model_catalog_category->getCategoryCities($this->request->get['category_id']);
+		} else {
+		 	$data['city_descriptions'] = array();
+		}
+		
 		// Categories
 		$categories = $this->model_catalog_category->getAllCategories();
 
@@ -577,17 +610,25 @@ class ControllerCatalogCategory extends Controller {
 				}
 			}
 		}
+		
 
 		if (utf8_strlen($this->request->post['keyword']) > 0) {
 			$this->load->model('catalog/url_alias');
+			$this->load->model('common/city');
 
 			$url_alias_info = $this->model_catalog_url_alias->getUrlAlias($this->request->post['keyword']);
+			
+			$url_alias_city = $this->model_common_city->getUrlAlias($this->request->post['keyword']);
 
 			if ($url_alias_info && isset($this->request->get['category_id']) && $url_alias_info['query'] != 'category_id=' . $this->request->get['category_id']) {
 				$this->error['keyword'] = sprintf($this->language->get('error_keyword'));
 			}
 
 			if ($url_alias_info && !isset($this->request->get['category_id'])) {
+				$this->error['keyword'] = sprintf($this->language->get('error_keyword'));
+			}
+			
+			if($url_alias_city){
 				$this->error['keyword'] = sprintf($this->language->get('error_keyword'));
 			}
 		}

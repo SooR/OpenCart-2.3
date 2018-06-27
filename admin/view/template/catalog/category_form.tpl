@@ -29,6 +29,7 @@
             <li class="active"><a href="#tab-general" data-toggle="tab"><?php echo $tab_general; ?></a></li>
             <li><a href="#tab-data" data-toggle="tab"><?php echo $tab_data; ?></a></li>
             <li><a href="#tab-design" data-toggle="tab"><?php echo $tab_design; ?></a></li>
+            <li><a href="#tab-city" data-toggle="tab"><?php echo $tab_city; ?></a></li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tab-general">
@@ -47,36 +48,6 @@
                       <?php if (isset($error_name[$language['language_id']])) { ?>
                       <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
                       <?php } ?>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-description<?php echo $language['language_id']; ?>"><?php echo $entry_description; ?></label>
-                    <div class="col-sm-10">
-                      <textarea name="category_description[<?php echo $language['language_id']; ?>][description]" placeholder="<?php echo $entry_description; ?>" id="input-description<?php echo $language['language_id']; ?>" data-lang="<?php echo $lang; ?>" class="form-control summernote"><?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['description'] : ''; ?></textarea>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-meta-title<?php echo $language['language_id']; ?>"><?php echo $entry_meta_title; ?></label>
-                    <div class="col-sm-10">
-                      <input type="text" name="category_description[<?php echo $language['language_id']; ?>][meta_title]" value="<?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['meta_title'] : ''; ?>" placeholder="<?php echo $entry_meta_title; ?>" id="input-meta-title<?php echo $language['language_id']; ?>" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-meta-h1<?php echo $language['language_id']; ?>"><?php echo $entry_meta_h1; ?></label>
-                    <div class="col-sm-10">
-                      <input type="text" name="category_description[<?php echo $language['language_id']; ?>][meta_h1]" value="<?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['meta_h1'] : ''; ?>" placeholder="<?php echo $entry_meta_h1; ?>" id="input-meta-h1<?php echo $language['language_id']; ?>" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-meta-description<?php echo $language['language_id']; ?>"><?php echo $entry_meta_description; ?></label>
-                    <div class="col-sm-10">
-                      <textarea name="category_description[<?php echo $language['language_id']; ?>][meta_description]" rows="5" placeholder="<?php echo $entry_meta_description; ?>" id="input-meta-description<?php echo $language['language_id']; ?>" class="form-control"><?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['meta_description'] : ''; ?></textarea>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-meta-keyword<?php echo $language['language_id']; ?>"><?php echo $entry_meta_keyword; ?></label>
-                    <div class="col-sm-10">
-                      <textarea name="category_description[<?php echo $language['language_id']; ?>][meta_keyword]" rows="5" placeholder="<?php echo $entry_meta_keyword; ?>" id="input-meta-keyword<?php echo $language['language_id']; ?>" class="form-control"><?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['meta_keyword'] : ''; ?></textarea>
                     </div>
                   </div>
                 </div>
@@ -241,17 +212,133 @@
                 </table>
               </div>
             </div>
+            <div class="tab-pane" id="tab-city">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-filter"><?php echo $entry_city; ?></label>
+                    <div class="col-sm-10">
+                        <input type="text" name="city" value="" placeholder="<?php echo $entry_city; ?>" id="input-city" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-filter"><?php echo $text_city; ?></label>
+                    <div class="col-sm-10">
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <?php foreach ($city_descriptions as $city_description){ ?>
+                            <div id="city_id-<?php echo $city_description[$current_lang]['city_id']; ?>" class="panel panel-default cities">
+                                <div class="panel-heading" role="tab" id="heading<?php echo $city_description[$current_lang]['city_id']; ?>">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $city_description[$current_lang]['city_id']; ?>" aria-expanded="false" aria-controls="collapse<?php echo $city_description[$current_lang]['city_id']; ?>">
+	                                        <?php echo $city_description[$current_lang]['name']; ?>
+                                        </a>
+                                        <div class="pull-right">
+                                            <i class="fa fa-minus-circle"></i>
+                                        </div>
+                                    </h4>
+                                </div>
+                                <div id="collapse<?php echo $city_description[$current_lang]['city_id']; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<?php echo $city_description[$current_lang]['city_id']; ?>">
+                                    <div class="panel-body">
+                                        <div class="tab-pane">
+                                            <ul class="nav nav-tabs" id="language_city-<?php echo $city_description[$current_lang]['city_id']; ?>">
+						                        <?php foreach ($languages as $language) { ?>
+                                                    <li><a href="#language_city-<?php echo $city_description[$language['language_id']]['city_id']; ?>-<?php echo $language['language_id']; ?>" data-toggle="tab"><img src="language/<?php echo $language['code']; ?>/<?php echo $language['code']; ?>.png" title="<?php echo $language['name']; ?>" /> <?php echo $language['name']; ?></a></li>
+						                        <?php } ?>
+                                            </ul>
+                                            <div class="tab-content">
+						                        <?php foreach ($languages as $language) { ?>
+                                                <div class="tab-pane" id="language_city-<?php echo $city_description[$language['language_id']]['city_id']; ?>-<?php echo $language['language_id']; ?>">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label" for="input-title-<?php echo $city_description[$language['language_id']]['city_id']; ?>-<?php echo $language['language_id']; ?>"><?php echo $entry_meta_title; ?></label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="city_description[<?php echo $city_description[$language['language_id']]['city_id']; ?>][<?php echo $language['language_id']; ?>][title]" placeholder="<?php echo $entry_meta_title; ?>" id="input-title-<?php echo $city_description[$language['language_id']]['city_id']; ?>-<?php echo $language['language_id']; ?>" value="<?php echo isset($city_description[$language['language_id']]['title']) ? $city_description[$language['language_id']]['title'] : ''; ?>" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label" for="input-meta_description-<?php echo $city_description[$language['language_id']]['city_id']; ?>-<?php echo $language['language_id']; ?>"><?php echo $entry_meta_description; ?></label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="city_description[<?php echo $city_description[$language['language_id']]['city_id']; ?>][<?php echo $language['language_id']; ?>][meta_description]" placeholder="<?php echo $entry_meta_description; ?>" id="input-meta_description-<?php echo $city_description[$language['language_id']]['city_id']; ?>-<?php echo $language['language_id']; ?>" value="<?php echo isset($city_description[$language['language_id']]['meta_description']) ? $city_description[$language['language_id']]['meta_description'] : ''; ?>" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label" for="input-meta_h1-<?php echo $city_description[$language['language_id']]['city_id']; ?>-<?php echo $language['language_id']; ?>"><?php echo $entry_meta_h1; ?></label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="city_description[<?php echo $city_description[$language['language_id']]['city_id']; ?>][<?php echo $language['language_id']; ?>][meta_h1]" placeholder="<?php echo $entry_meta_h1; ?>" id="input-meta_h1-<?php echo $city_description[$language['language_id']]['city_id']; ?>-<?php echo $language['language_id']; ?>" value="<?php echo isset($city_description[$language['language_id']]['meta_h1']) ? $city_description[$language['language_id']]['meta_h1'] : ''; ?>" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label" for="input-description-<?php echo $city_description[$language['language_id']]['city_id']; ?>-<?php echo $language['language_id']; ?>"><?php echo $entry_description; ?></label>
+                                                        <div class="col-sm-10">
+                                                            <textarea name="city_description[<?php echo $city_description[$language['language_id']]['city_id']; ?>][<?php echo $language['language_id']; ?>][description]" placeholder="<?php echo $entry_description; ?>" id="input-description-<?php echo $city_description[$language['language_id']]['city_id']; ?>-<?php echo $language['language_id']; ?>" data-lang="<?php echo $lang; ?>" class="form-control summernote"><?php echo isset($city_description[$language['language_id']]['description']) ? $city_description[$language['language_id']]['description'] : ''; ?></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label" for="input-meta_keyword-<?php echo $city_description[$language['language_id']]['city_id']; ?>-<?php echo $language['language_id']; ?>"><?php echo $entry_meta_keyword; ?></label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="city_description[<?php echo $city_description[$language['language_id']]['city_id']; ?>][<?php echo $language['language_id']; ?>][meta_keyword]" placeholder="<?php echo $entry_meta_keyword; ?>" id="input-meta_keyword-<?php echo $city_description[$language['language_id']]['city_id']; ?>-<?php echo $language['language_id']; ?>" value="<?php echo isset($city_description[$language['language_id']]['meta_keyword']) ? $city_description[$language['language_id']]['meta_keyword'] : ''; ?>" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-2 control-label" for="input-canonical-<?php echo $city_description[$language['language_id']]['city_id']; ?>-<?php echo $language['language_id']; ?>"><?php echo $entry_canonical; ?></label>
+                                                            <div class="col-sm-10">
+                                                                <input type="text" name="city_description[<?php echo $city_description[$language['language_id']]['city_id']; ?>][<?php echo $language['language_id']; ?>][canonical]" placeholder="<?php echo $entry_canonical; ?>" id="input-canonical-<?php echo $city_description[$language['language_id']]['city_id']; ?>-<?php echo $language['language_id']; ?>" value="<?php echo isset($city_description[$language['language_id']]['canonical']) ? $city_description[$language['language_id']]['canonical'] : ''; ?>" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label"><?php echo $entry_index; ?></label>
+                                                        <div class="col-sm-10">
+                                                            <div class="col-sm-10">
+                                                                <label class="radio-inline">
+			                                                        <?php if (isset($city_description[$language['language_id']]['robots']) && $city_description[$language['language_id']]['robots']) { ?>
+                                                                        <input type="radio" name="city_description[<?php echo $city_description[$language['language_id']]['city_id']; ?>][<?php echo $language['language_id']; ?>][robots]" value="1" checked="checked" />
+				                                                        <?php echo $text_yes; ?>
+			                                                        <?php } else if(!isset($city_description[$language['language_id']]['robots'])) { ?>
+                                                                        <input type="radio" name="city_description[<?php echo $city_description[$language['language_id']]['city_id']; ?>][<?php echo $language['language_id']; ?>][robots]" value="1" checked="checked" />
+				                                                        <?php echo $text_yes; ?>
+			                                                        <?php } else { ?>
+                                                                        <input type="radio" name="city_description[<?php echo $city_description[$language['language_id']]['city_id']; ?>][<?php echo $language['language_id']; ?>][robots]" value="1" />
+				                                                        <?php echo $text_yes; ?>
+			                                                        <?php } ?>
+                                                                </label>
+                                                                <label class="radio-inline">
+	                                                                <?php if (isset($city_description[$language['language_id']]['robots']) && !$city_description[$language['language_id']]['robots']) { ?>
+                                                                        <input type="radio" name="city_description[<?php echo $city_description[$language['language_id']]['city_id']; ?>][<?php echo $language['language_id']; ?>][robots]" value="0" checked="checked" />
+				                                                        <?php echo $text_no; ?>
+			                                                        <?php } else { ?>
+                                                                        <input type="radio" name="city_description[<?php echo $city_description[$language['language_id']]['city_id']; ?>][<?php echo $language['language_id']; ?>][robots]" value="0" />
+				                                                        <?php echo $text_no; ?>
+			                                                        <?php } ?>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
           </div>
         </form>
       </div>
     </div>
   </div>
   <script type="text/javascript"><!--
-  <?php if ($ckeditor) { ?>
-    <?php foreach ($languages as $language) { ?>
-        ckeditorInit('input-description<?php echo $language['language_id']; ?>', getURLVar('token'));
-    <?php } ?>
-  <?php } ?>
+	  <?php foreach ($city_descriptions as $city_description){ ?>
+      $('#language_city-<?php echo $city_description[$current_lang]['city_id']; ?> a:first').tab('show');
+	  <?php } ?>
+   
+	  <?php if ($ckeditor) { ?>
+	  <?php foreach ($city_descriptions as $city_description){ ?>
+      <?php foreach ($languages as $language) { ?>
+      ckeditorInit('input-description-<?php echo $city_description[$current_lang]['city_id']; ?>-<?php echo $language['language_id']; ?>', getURLVar('token'));
+      <?php } ?>
+	  <?php } ?>
+	  <?php } ?>
   //--></script>
   <script type="text/javascript"><!--
 $('input[name=\'path\']').autocomplete({
@@ -279,10 +366,11 @@ $('input[name=\'path\']').autocomplete({
 		$('input[name=\'parent_id\']').val(item['value']);
 	}
 });
-//--></script> 
+//--></script>
   <script type="text/javascript"><!--
 $('input[name=\'filter\']').autocomplete({
 	'source': function(request, response) {
+        console.log("1");
 		$.ajax({
 			url: 'index.php?route=catalog/filter/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
 			dataType: 'json',
@@ -308,7 +396,130 @@ $('input[name=\'filter\']').autocomplete({
 $('#category-filter').delegate('.fa-minus-circle', 'click', function() {
 	$(this).parent().remove();
 });
-//--></script> 
+//--></script>
+    
+    <script type="text/javascript"><!--
+        $('input[name=\'city\']').autocomplete({
+            'source': function(request, response) {
+                $.ajax({
+                    url: 'index.php?route=localisation/city/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
+                    dataType: 'json',
+                    success: function(json) {
+                        response($.map(json, function(item) {
+                            return {
+                                label: item['name'],
+                                value: item['city_id']
+                            }
+                        }));
+                    }
+                });
+            },
+            'select': function(item) {
+                $('input[name=\'city\']').val('');
+                
+                if($('#city_id-' + item['value']).length == 1){
+                    alert("<?php echo $error_city; ?>");
+                } else {
+                    html  = '<div id="city_id-' + item['value'] + '" class="panel panel-default cities">';
+                    html += '<div class="panel-heading" role="tab" id="heading' + item['value'] + '">';
+                    html += '<h4 class="panel-title">';
+                    html += '<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse' + item['value'] + '" aria-expanded="false" aria-controls="collapse' + item['value'] + '">';
+                    html += item['label'];
+                    html += '</a>';
+                    html += '<div class="pull-right">';
+                    html += '<i class="fa fa-minus-circle"></i>';
+                    html += '</div>';
+                    html += '</h4>';
+                    html += '</div>';
+                    html += '<div id="collapse' + item['value'] + '" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading' + item['value'] + '">';
+                    html += '<div class="panel-body">';
+                    html += '<div class="tab-pane">';
+                    html += '<ul class="nav nav-tabs" id="language_city-' + item['value'] + '">';
+                    <?php foreach ($languages as $language) { ?>
+                    html += '<li><a href="#language_city-' + item['value'] + '-<?php echo $language['language_id']; ?>" data-toggle="tab"><img src="language/<?php echo $language['code']; ?>/<?php echo $language['code']; ?>.png" title="<?php echo $language['name']; ?>" /> <?php echo $language['name']; ?></a></li>';
+	                <?php } ?>
+                    html += '</ul>';
+                    html += '<div class="tab-content">';
+                    <?php foreach ($languages as $language) { ?>
+                    html += '<div class="tab-pane" id="language_city-' + item['value'] + '-<?php echo $language['language_id']; ?>">';
+                    html += '<div class="form-group">';
+                    html += '<label class="col-sm-2 control-label" for="input-title-' + item['value'] + '-<?php echo $language['language_id']; ?>"><?php echo $entry_meta_title; ?></label>';
+                    html += '<div class="col-sm-10">';
+                    html += '<input type="text" name="city_description[' + item['value'] + '][<?php echo $language['language_id']; ?>][title]" placeholder="<?php echo $entry_meta_title; ?>" id="input-title-' + item['value'] + '-<?php echo $language['language_id']; ?>" value="" class="form-control" />';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '<div class="form-group">';
+                    html += '<label class="col-sm-2 control-label" for="input-meta_description-' + item['value'] + '-<?php echo $language['language_id']; ?>"><?php echo $entry_meta_description; ?></label>';
+                    html += '<div class="col-sm-10">';
+                    html += '<input type="text" name="city_description[' + item['value'] + '][<?php echo $language['language_id']; ?>][meta_description]" placeholder="<?php echo $entry_meta_description; ?>" id="input-meta_description-' + item['value'] + '-<?php echo $language['language_id']; ?>" value="" class="form-control" />';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '<div class="form-group">';
+                    html += '<label class="col-sm-2 control-label" for="input-meta_h1-' + item['value'] + '-<?php echo $language['language_id']; ?>"><?php echo $entry_meta_h1; ?></label>';
+                    html += '<div class="col-sm-10">';
+                    html += '<input type="text" name="city_description[' + item['value'] + '][<?php echo $language['language_id']; ?>][meta_h1]" placeholder="<?php echo $entry_meta_h1; ?>" id="input-meta_h1-' + item['value'] + '-<?php echo $language['language_id']; ?>" value="" class="form-control" />';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '<div class="form-group">';
+                    html += '<label class="col-sm-2 control-label" for="input-description->' + item['value'] + '-<?php echo $language['language_id']; ?>"><?php echo $entry_description; ?></label>';
+                    html += '<div class="col-sm-10">';
+                    html += '<textarea name="city_description[' + item['value'] + '][<?php echo $language['language_id']; ?>][description]" placeholder="<?php echo $entry_description; ?>" id="input-description-' + item['value'] + '-<?php echo $language['language_id']; ?>" data-lang="<?php echo $lang; ?>" class="form-control summernote"></textarea>';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '<div class="form-group">';
+                    html += '<label class="col-sm-2 control-label" for="input-meta_keyword-' + item['value'] + '-<?php echo $language['language_id']; ?>"><?php echo $entry_meta_keyword; ?></label>';
+                    html += '<div class="col-sm-10">';
+                    html += '<input type="text" name="city_description[' + item['value'] + '][<?php echo $language['language_id']; ?>][meta_keyword]" placeholder="<?php echo $entry_meta_keyword; ?>" id="input-meta_keyword-' + item['value'] + '-<?php echo $language['language_id']; ?>" value="" class="form-control" />';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '<div class="form-group">';
+                    html += '<label class="col-sm-2 control-label" for="input-canonical-' + item['value'] + '-<?php echo $language['language_id']; ?>"><?php echo $entry_canonical; ?></label>';
+                    html += '<div class="col-sm-10">';
+                    html += '<input type="text" name="city_description[' + item['value'] + '][<?php echo $language['language_id']; ?>][canonical]" placeholder="<?php echo $entry_canonical; ?>" id="input-canonical-' + item['value'] + '-<?php echo $language['language_id']; ?>" value="" class="form-control" />';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '<div class="form-group">';
+                    html += '<label class="col-sm-2 control-label"><?php echo $entry_index; ?></label>';
+                    html += '<div class="col-sm-10">';
+                    html += '<div class="col-sm-10">';
+                    html += '<label class="radio-inline">';
+                    html += '<input type="radio" name="city_description[' + item['value'] + '][<?php echo $language['language_id']; ?>][robots]" value="1" checked="checked" />';
+		            html += '<?php echo $text_yes; ?>';
+                    html += '</label>';
+                    html += '<label class="radio-inline">';
+                    html += '<input type="radio" name="city_description[' + item['value'] + '][<?php echo $language['language_id']; ?>][robots]" value="0" />';
+                    html += '<?php echo $text_no; ?>';
+                    html += '</label>';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</div>';
+		            <?php } ?>
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</div>';
+        
+                    $('#accordion').append(html);
+                
+                    <?php if ($ckeditor) { ?>
+                    <?php foreach ($languages as $language) { ?>
+                    ckeditorInit('input-description-' + item['value'] + '-<?php echo $language['language_id']; ?>', getURLVar('token'));
+                    <?php } ?>
+                    <?php } ?>
+        
+                    $('#language_city-' + item['value'] + ' a:first').tab('show');
+                }
+            }
+        });
+
+        $('#accordion').delegate('.fa-minus-circle', 'click', function() {
+            $(this).parents('.cities').remove();
+        });
+        
+        //--></script>
+    
   <script type="text/javascript"><!--
 $('#language a:first').tab('show');
 //--></script></div>

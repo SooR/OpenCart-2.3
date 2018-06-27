@@ -51,7 +51,7 @@ class ControllerExtensionModuleOCFilter extends Controller {
         }
 
         if (!$this->page_info) {
-         	$this->document->setNoindex(true);
+	        $this->document->setRobots('noindex, nofollow');
         }
       }
     }

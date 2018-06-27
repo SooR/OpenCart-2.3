@@ -110,6 +110,7 @@
 		public function deleteCity($city_id) {
 			$this->db->query("DELETE FROM " . DB_PREFIX . "city WHERE id = '" . (int)$city_id . "'");
 			$this->db->query("DELETE FROM " . DB_PREFIX . "city_description WHERE city_id = '" . (int)$city_id . "'");
+			$this->db->query("DELETE FROM " . DB_PREFIX . "category_city WHERE city_id = '" . (int)$city_id . "'");
 			
 			$this->cache->delete('city');
 		}

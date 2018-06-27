@@ -12,6 +12,16 @@ class ModelCatalogCategory extends Model {
 		foreach ($data['category_description'] as $language_id => $value) {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "category_description SET category_id = '" . (int)$category_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', description = '" . $this->db->escape($value['description']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_h1 = '" . $this->db->escape($value['meta_h1']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
 		}
+		
+		// Cities
+		
+		foreach ($data['city_description'] as $city_id => $city) {
+			foreach ($city as $language_id => $language) {
+				$this->db->query("INSERT INTO " . DB_PREFIX . "category_city SET category_id = '" . (int)$category_id . "', city_id = '" . (int)$city_id . "', language_id = '" . (int)$language_id . "', title = '" . $this->db->escape($language['title']) . "', meta_h1 = '" . $this->db->escape($language['meta_h1']) . "', description = '" . $this->db->escape($language['description']) . "', meta_description = '" . $this->db->escape($language['meta_description']) . "', meta_keyword = '" . $this->db->escape($language['meta_keyword']) . "', canonical = '" . $this->db->escape($language['canonical']) . "', robots = '" . (int)$language['robots'] . "'");
+			}
+		}
+		
+		//  Cities
 
 		// MySQL Hierarchical Data Closure Table Pattern
 		$level = 0;
@@ -64,8 +74,20 @@ class ModelCatalogCategory extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "category_description WHERE category_id = '" . (int)$category_id . "'");
 
 		foreach ($data['category_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "category_description SET category_id = '" . (int)$category_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', description = '" . $this->db->escape($value['description']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_h1 = '" . $this->db->escape($value['meta_h1']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "category_description SET category_id = '" . (int)$category_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "'");
 		}
+		
+		// Cities
+		
+		$this->db->query("DELETE FROM " . DB_PREFIX . "category_city WHERE category_id = '" . (int)$category_id . "'");
+		
+		foreach ($data['city_description'] as $city_id => $city) {
+			foreach ($city as $language_id => $language) {
+				$this->db->query("INSERT INTO " . DB_PREFIX . "category_city SET category_id = '" . (int)$category_id . "', city_id = '" . (int)$city_id . "', language_id = '" . (int)$language_id . "', title = '" . $this->db->escape($language['title']) . "', meta_h1 = '" . $this->db->escape($language['meta_h1']) . "', description = '" . $this->db->escape($language['description']) . "', meta_description = '" . $this->db->escape($language['meta_description']) . "', meta_keyword = '" . $this->db->escape($language['meta_keyword']) . "', canonical = '" . $this->db->escape($language['canonical']) . "', robots = '" . (int)$language['robots'] . "'");
+			}
+		}
+		
+		//  Cities
 
 		// MySQL Hierarchical Data Closure Table Pattern
 		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "category_path` WHERE path_id = '" . (int)$category_id . "' ORDER BY level ASC");
@@ -255,21 +277,41 @@ class ModelCatalogCategory extends Model {
 	public function getCategoryDescriptions($category_id) {
 		$category_description_data = array();
 
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "category_description WHERE category_id = '" . (int)$category_id . "'");
+		$query = $this->db->query("SELECT name,language_id FROM " . DB_PREFIX . "category_description WHERE category_id = '" . (int)$category_id . "'");
 
 		foreach ($query->rows as $result) {
 			$category_description_data[$result['language_id']] = array(
-				'name'             => $result['name'],
-				'meta_title'       => $result['meta_title'],
-				'meta_h1'          => $result['meta_h1'],
-				'meta_description' => $result['meta_description'],
-				'meta_keyword'     => $result['meta_keyword'],
-				'description'      => $result['description']
+				'name'             => $result['name']
 			);
 		}
 
 		return $category_description_data;
 	}
+	
+	public function getCategoryCities($category_id) {
+		$category_cities_data = array();
+		
+		$query = $this->db->query("SELECT cc.city_id, cd.city_id, cc.language_id, cd.language_id, cd.name, cc.title, cc.meta_h1, cc.meta_description, cc.description, cc.meta_keyword, cc.canonical, cc.robots FROM " . DB_PREFIX . "category_city cc LEFT JOIN " . DB_PREFIX . "city_description cd ON (cc.city_id = cd.city_id AND cc.language_id = cd.language_id) WHERE category_id = '" . (int)$category_id . "'");
+		
+		foreach ($query->rows as $result) {
+				
+				$category_cities_data[$result['city_id']][$result['language_id']] = array(
+					'city_id' => $result['city_id'],
+					'name' => $result['name'],
+					'title' => $result['title'],
+					'meta_h1' => $result['meta_h1'],
+					'meta_description' => $result['meta_description'],
+					'description' => $result['description'],
+					'meta_keyword' => $result['meta_keyword'],
+					'canonical' => $result['canonical'],
+					'robots' => $result['robots'],
+					
+				);
+		}
+		
+		return $category_cities_data;
+	}
+	
 	
 	public function getCategoryPath($category_id) {
 		$query = $this->db->query("SELECT category_id, path_id, level FROM " . DB_PREFIX . "category_path WHERE category_id = '" . (int)$category_id . "'");

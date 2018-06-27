@@ -21,14 +21,9 @@ $_['entry_description']         = 'Описание:';
 $_['entry_title']               = 'HTML-тег Title';
 $_['entry_meta_h1']             = 'HTML-тег H1';
 $_['entry_meta_description']    = 'Мета-тег Description:';
-
-$_['entry_canonical']             = 'Мета-тег Сanonical';
 $_['entry_index']                 = 'Индексировать страницу:';
 
 $_['help_code']            = 'Замените пробелы на тире. Должно быть уникальным на всю систему.';
-$_['help_canonical']       = 'Если пустой, ссылается сам на себя';
-
-
 
 // Error
 $_['error_permission']     = 'У вас нет прав для изменения списка гордов';

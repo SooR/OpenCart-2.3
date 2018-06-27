@@ -25,12 +25,6 @@
       </div>
       <div class="panel-body">
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-city" class="form-horizontal">
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#tab-general" data-toggle="tab"><?php echo $tab_general; ?></a></li>
-                <li><a href="#tab-data" data-toggle="tab"><?php echo $tab_data; ?></a></li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" id="tab-general">
             <div class="tab-pane">
                 <ul class="nav nav-tabs" id="language">
 			        <?php foreach ($languages as $language) { ?>
@@ -121,11 +115,6 @@
                             <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
 				        <?php } ?>
                     </select>
-                </div>
-            </div>
-                </div>
-                <div class="tab-pane" id="tab-data">
-                    1
                 </div>
             </div>
         </form>

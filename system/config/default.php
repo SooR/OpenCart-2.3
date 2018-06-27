@@ -7,8 +7,8 @@ $_['site_ssl']             = false;
 $_['url_autostart']        = true;
 
 // Language
-$_['language_default']     = 'en-gb';
-$_['language_autoload']    = array('en-gb');
+$_['language_default']     = 'ru';
+$_['language_autoload']    = array('ru');
 
 // Database
 $_['db_autostart']         = false;
