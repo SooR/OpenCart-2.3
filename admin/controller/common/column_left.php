@@ -163,27 +163,34 @@ class ControllerCommonColumnLeft extends Controller {
 				);
 			}
 			
-			// Blog start
+			// Shop start
 			$shop = array();
 			
-			$this->load->language('blog/blog');
+			$this->load->language('catalog/shop');
 			
-			if ($this->user->hasPermission('access', 'blog/blog')) {
+			if ($this->user->hasPermission('access', 'catalog/shop')) {
 				$shop[] = array(
-					'name'     => $this->language->get('text_blog_post'),
-					'href'     => $this->url->link('blog/blog', 'token=' . $this->session->data['token'], true),
+					'name'     => $this->language->get('text_shop'),
+					'href'     => $this->url->link('catalog/shop', 'token=' . $this->session->data['token'], true),
 					'children' => array()
 				);
 			}
-			if ($this->user->hasPermission('access', 'blog/blog_category')) {
+			if ($this->user->hasPermission('access', 'catalog/shop')) {
 				$shop[] = array(
-					'name'     => $this->language->get('text_blog_category'),
-					'href'     => $this->url->link('blog/blog_category', 'token=' . $this->session->data['token'], true),
+					'name'     => $this->language->get('text_shop_city'),
+					'href'     => $this->url->link('catalog/shop_city', 'token=' . $this->session->data['token'], true),
 					'children' => array()
 				);
 			}
 			
-			
+			if ($shop) {
+				$catalog[] = array(
+					'name'	   => $this->language->get('text_shop'),
+					'href'     => '',
+					'children' => $shop
+				);
+			}
+			// Shop ends
 			
 			if ($this->user->hasPermission('access', 'catalog/review')) {
 				$catalog[] = array(
@@ -254,7 +261,6 @@ class ControllerCommonColumnLeft extends Controller {
 				);
 			}
 			// Blog ends
-			
 	
 			// Extension
 			$extension = array();
