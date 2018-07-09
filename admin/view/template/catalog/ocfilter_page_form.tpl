@@ -163,5 +163,12 @@ $('input[name=\'path\']').autocomplete({
   <script type="text/javascript"><!--
 $('#language a:first').tab('show');
 //--></script>
+    <script type="text/javascript"><!--
+		<?php if ($ckeditor) { ?>
+		<?php foreach ($languages as $language) { ?>
+        ckeditorInit('input-description<?php echo $language['language_id']; ?>', getURLVar('token'));
+		<?php } ?>
+		<?php } ?>
+        //--></script>
 </div>
 <?php echo $footer; ?>

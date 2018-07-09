@@ -28,6 +28,7 @@ class Document {
 	public function getCanonical() {
 		return $this->canonical;
 	}
+	
 	/* META CANNONICAL */
 	
 	public function setTitle($title) {

@@ -163,6 +163,10 @@ class ControllerStartupStartup extends Controller {
 		}
 		
 		if (isset($this->request->get['_route_'])) {
+		
+		}
+		
+		if (isset($this->request->get['_route_'])) {
 			$urlcity = explode('/', trim(utf8_strtolower($this->request->get['_route_']), '/'));
 			
 			if($urlcity) {

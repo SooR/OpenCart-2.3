@@ -23,6 +23,41 @@ class ControllerCommonHeader extends Controller {
 		if (is_file(DIR_IMAGE . $this->config->get('config_icon'))) {
 			$this->document->addLink($server . 'image/' . $this->config->get('config_icon'), 'icon');
 		}
+		
+		$this->load->model('localisation/language');
+		
+		$data['lang_links'] = array();
+		
+		$results = $this->model_localisation_language->getLanguages();
+		
+		$url = $_SERVER['REQUEST_URI'];
+		
+		$url = strtok($url, '?');
+		
+		foreach ($results as $result) {
+			if ($result['status']) {
+				
+				$url = str_replace("/" . $result['code'] . "/", "", $url);
+			}
+		}
+
+		// SEO LANG
+		foreach ($results as $result) {
+			if ($result['status']) {
+				if($result['code'] == $this->config->get('config_language')){
+					$link = "";
+					$url = substr($url,1);
+				}else{
+					$link = $result['code'] . "/";
+				}
+				
+				$data['lang_links'][] = array(
+					'href' => (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1')) ? HTTPS_SERVER : HTTP_SERVER)  . $link . $url,
+					'hreflang' => $result['code']
+				);
+			}
+		}
+		// SEO LANG
 
 		$data['title'] = $this->document->getTitle();
 

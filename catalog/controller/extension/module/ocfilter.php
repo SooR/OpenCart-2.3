@@ -49,10 +49,6 @@ class ControllerExtensionModuleOCFilter extends Controller {
           	$this->max_price_get = $range['to'];
           }
         }
-
-        if (!$this->page_info) {
-	        $this->document->setRobots('noindex, nofollow');
-        }
       }
     }
 

@@ -78,23 +78,24 @@ class ControllerProductCategory extends Controller {
 			$parts = explode('_', (string)$this->request->get['path']);
 
 			$category_id = (int)array_pop($parts);
-
-			foreach ($parts as $path_id) {
-				if (!$path) {
-					$path = (int)$path_id;
-				} else {
-					$path .= '_' . (int)$path_id;
-				}
-
-				$category_info = $this->model_catalog_category->getCategory($path_id);
-
-				if ($category_info) {
-					$data['breadcrumbs'][] = array(
-						'text' => $category_info['name'],
-						'href' => $this->url->link('product/category', 'path=' . $path . $url)
-					);
+			
+			$categoryPaths = $this->model_catalog_category->getCategoryPath($category_id);
+			
+			if($categoryPaths) {
+				
+				foreach ($categoryPaths as $categoryPaths) {
+					
+					$category_info = $this->model_catalog_category->getCategory($categoryPaths['path_id']);
+					
+					if ($category_info) {
+						$data['breadcrumbs'][] = array(
+							'text' => $category_info['name'],
+							'href' => $this->url->link('product/category', 'path=' . $categoryPaths['path_id'])
+						);
+					}
 				}
 			}
+			
 		} else {
 			$category_id = 0;
 		}
@@ -111,7 +112,6 @@ class ControllerProductCategory extends Controller {
 			if($city_id) {
 				$city_description = $this->model_common_city->getCityCategory($city_id['id'], $category_id);
 			}
-			
 			// Cities
 			
 			if (isset($city_description['title'])) {
@@ -120,17 +120,47 @@ class ControllerProductCategory extends Controller {
 				$this->document->setTitle($category_info['name']);
 			}
 			
+			$city_code = $this->session->data['city'];
+			$results = $this->model_common_city->getCityDescription($city_code);
+			
 			if (isset($city_description['description']) && isset($city_description['robots'])) {
 				if (!$city_description['description'] || !$city_description['robots']) {
 					$this->document->setRobots('noindex, nofollow');
 				}
+			} else if(isset($results['robots'])){
+				if (!$results['robots']) {
+					$this->document->setRobots('noindex, nofollow');
+				}
 			}
 			
-			if (isset($city_description['canonical'])) {
+			
+			if(isset($this->request->get['filter_ocfilter'])) {
+				
+				$ocfilter_page_info = $this->load->controller('extension/module/ocfilter/getPageInfo');
+				
+				if($ocfilter_page_info){
+					$this->document->setCanonical((isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1')) ? HTTPS_SERVER : HTTP_SERVER) . substr($_SERVER['REQUEST_URI'],1));
+				}
+				else{
+					$this->document->setRobots('noindex, nofollow');
+					
+					if (isset($city_description['canonical'])) {
+						if ($city_description['canonical']) {
+							$this->document->setCanonical($city_description['canonical']);
+						}
+					}
+					
+				}
+				
+			} else if (isset($city_description['canonical'])) {
+				
 				if ($city_description['canonical']) {
 					$this->document->setCanonical($city_description['canonical']);
 				}
+			} else{
+				$this->document->setCanonical($this->url->link('product/category', 'path=' . $category_info['category_id'], true));
 			}
+			
 			if (isset($city_description['meta_description'])) {
 				$this->document->setDescription($city_description['meta_description']);
 			}
@@ -172,20 +202,14 @@ class ControllerProductCategory extends Controller {
 			$data['text_d1_items'] = $this->language->get('text_d1_items');
 			$data['text_d2_items'] = $this->language->get('text_d2_items');
 			$data['text_d3_items'] = $this->language->get('text_d3_items');
-
-			// Set the last category breadcrumb
-			$data['breadcrumbs'][] = array(
-				'text' => $category_info['name'],
-				'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'])
-			);
-
+			
 			if ($category_info['image']) {
 				$data['thumb'] = $this->model_tool_image->resize($category_info['image'], $this->config->get($this->config->get('config_theme') . '_image_category_width'), $this->config->get($this->config->get('config_theme') . '_image_category_height'));
 				$this->document->setOgImage($data['thumb']);
 			} else {
 				$data['thumb'] = '';
 			}
-			if (isset($city_description['description'])) {
+			if (isset($city_description['description']) && $page == 1) {
 				$data['description'] = html_entity_decode($city_description['description'], ENT_QUOTES, 'UTF-8');
 			}else{
 				$data['description'] = "";
@@ -473,7 +497,7 @@ class ControllerProductCategory extends Controller {
 
 			// http://googlewebmastercentral.blogspot.com/2011/09/pagination-with-relnext-and-relprev.html
 			if ($page == 1) {
-			    $this->document->addLink($this->url->link('product/category', 'path=' . $category_info['category_id'], true), 'canonical');
+			    //$this->document->addLink($this->url->link('product/category', 'path=' . $category_info['category_id'], true), 'canonical');
 			} elseif ($page == 2) {
 			    $this->document->addLink($this->url->link('product/category', 'path=' . $category_info['category_id'], true), 'prev');
 			} else {
@@ -495,8 +519,6 @@ class ControllerProductCategory extends Controller {
 				}
 				
 				$data['description'] = '';
-				
-				$this->document->deleteLink('canonical');
 			}
 			
 			$ocfilter_page_info = $this->load->controller('extension/module/ocfilter/getPageInfo');
