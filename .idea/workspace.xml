@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="53759913-13e3-4223-b6ed-afa8283ab541" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/admin/controller/common/column_left.php" afterPath="$PROJECT_DIR$/admin/controller/common/column_left.php" />
-      <change beforePath="$PROJECT_DIR$/catalog/controller/startup/seo_pro.php" afterPath="$PROJECT_DIR$/catalog/controller/startup/seo_pro.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -269,7 +267,7 @@
       <workItem from="1530864431174" duration="12874000" />
       <workItem from="1530885544143" duration="1702000" />
       <workItem from="1531115787488" duration="7751000" />
-      <workItem from="1531134086929" duration="3592000" />
+      <workItem from="1531134086929" duration="3614000" />
     </task>
     <task id="LOCAL-00001" summary="Update 09.07.2018">
       <created>1531130619175</created>
@@ -278,21 +276,27 @@
       <option name="project" value="LOCAL" />
       <updated>1531130619175</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update 09.07.2018 v2">
+      <created>1531142424773</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1531142424773</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147966000" />
+    <option name="totallyTimeSpent" value="147988000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32864866" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13486141" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17590618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -367,7 +371,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update 09.07.2018" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update 09.07.2018" />
+    <MESSAGE value="Update 09.07.2018 v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update 09.07.2018 v2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -643,6 +648,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="398">
           <caret line="451" column="65" lean-forward="true" selection-start-line="451" selection-start-column="65" selection-end-line="451" selection-end-column="65" />
+          <folding>
+            <marker date="1531130953050" expanded="true" signature="273:372" ph="SELECT LOWER... ${DB_PREFIX}" />
+            <marker date="1531130953050" expanded="true" signature="13135:13240" ph="SELECT blog_... ${DB_PREFIX}" />
+            <marker date="1531130953050" expanded="true" signature="14755:14892" ph="SELECT categ... ${DB_PREFIX}" />
+          </folding>
         </state>
       </provider>
     </entry>
